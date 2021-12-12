@@ -1,0 +1,40 @@
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Blog</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.3/css/bulma.min.css">
+</head>
+<body>
+<div>
+    <nav class="navbar is-dark">
+        <div class="navbar-brand">
+            <a class="navbar-item" href="/">
+                <p class="title has-text-white is-size-2 ml-5 mr-5">BLOG</p>
+            </a>
+        </div>
+    </nav>
+    <div class="posts mt-6" style="display:flex;justify-content:center">
+        <div class="card has-background-white-bis" style="width:50%;">
+            <div class="is-flex is-justify-content-right">
+                <button class="delete m-3 is-medium"></button>
+            </div>
+            <div class="card-content">
+                <div class="media-content">
+                    <p class="title is-4">John Smith</p>
+                </div>
+                <div class="content">
+                    Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+                    Phasellus nec iaculis mauris. <a>@bulmaio</a>.
+                    <a href="#">#css</a> <a href="#">#responsive</a>
+                    <br>
+                </div>
+                <footer class="card-footer">
+                    <a href="#" class="card-footer-item">Edit</a>
+                    <a href="#" class="card-footer-item">Comment</a>
+                </footer>
+            </div>
+        </div>
+    </div>
+</div>
+</body>
+</html>
