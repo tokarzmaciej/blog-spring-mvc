@@ -3,30 +3,86 @@
     <meta charset="UTF-8">
     <title>Blog</title>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.3/css/bulma.min.css">
+    <link rel="canonical" href="https://bulma.io/documentation/components/navbar/">
 </head>
+<script>
+    document.addEventListener('DOMContentLoaded', () => {
+
+        // Get all "navbar-burger" elements
+        const $navbarBurgers = Array.prototype.slice.call(document.querySelectorAll('.navbar-burger'), 0);
+
+        // Check if there are any navbar burgers
+        if ($navbarBurgers.length > 0) {
+
+            // Add a click event on each of them
+            $navbarBurgers.forEach(el => {
+                el.addEventListener('click', () => {
+
+                    // Get the target from the "data-target" attribute
+                    const target = el.dataset.target;
+                    const $target = document.getElementById(target);
+
+                    // Toggle the "is-active" class on both the "navbar-burger" and the "navbar-menu"
+                    el.classList.toggle('is-active');
+                    $target.classList.toggle('is-active');
+
+                });
+            });
+        }
+
+    });
+</script>
 <body>
+
 <div>
-    <nav class="navbar is-dark">
+    <nav class="navbar  is-dark">
         <div class="navbar-brand">
             <a class="navbar-item" href="/">
-                <p class="title has-text-white is-size-2 ml-5 mr-5">BLOG</p>
+                <p class="title has-text-white ml-5">BLOG</p>
             </a>
+            <div class="navbar-burger" data-target="navbarExampleTransparentExample">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </div>
+        <div id="navbarExampleTransparentExample" class="navbar-menu">
+            <div class="navbar-start">
+                <a class="navbar-item">
+                    Posts
+                </a>
+
+                <a class="navbar-item">
+                    Authors
+                </a>
+            </div>
+            <div class="navbar-end">
+                <div class="navbar-item">
+                    <div class="buttons">
+                        <a class="button is-primary
+                         mr-3">
+                            <strong>Add Post</strong>
+                        </a>
+                    </div>
+                </div>
+            </div>
         </div>
     </nav>
-    <div class="posts mt-6" style="display:flex;justify-content:center">
+
+
+    <div class="posts mt-6" style="display:flex;justify-content:center" th:each="post : ${posts}">
         <div class="card has-background-white-bis" style="width:50%;">
             <div class="is-flex is-justify-content-right">
                 <button class="delete m-3 is-medium"></button>
             </div>
             <div class="card-content">
                 <div class="media-content">
-                    <p class="title is-4">John Smith</p>
+                    <a class="is-size-4" href="#" th:text="${post.getTags()}"></a>
+                    <br>
+                    <br>
                 </div>
                 <div class="content">
-                    Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-                    Phasellus nec iaculis mauris. <a>@bulmaio</a>.
-                    <a href="#">#css</a> <a href="#">#responsive</a>
-                    <br>
+                    <p th:text="${post.getPost_content()}"></p>
                 </div>
                 <footer class="card-footer">
                     <a href="#" class="card-footer-item">Edit</a>

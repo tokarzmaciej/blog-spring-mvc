@@ -1,16 +1,17 @@
 package project.mvc.service;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import project.mvc.domain.Author;
+import org.springframework.stereotype.Service;
 import project.mvc.domain.Post;
 
 import java.util.List;
 import java.util.UUID;
 
+@Service
 public class PostManagerInMemoryImp implements PostManager {
 
-    @Autowired
-    List<Post> db;
+
+    @Autowired List<Post> db;
 
     @Override
     public Post addPost(Post post) {
