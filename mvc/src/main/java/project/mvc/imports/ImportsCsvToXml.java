@@ -94,7 +94,7 @@ public class ImportsCsvToXml {
             createBeans(authorsPathToClass, doc, rootElement, readCsv(authorsPathToFile), parametersFromClassAuthor);
 
 
-            String postsAuthorsPathToClass = "project.mvc.domain.PostAuthor";
+            String postsAuthorsPathToClass = "project.mvc.domain.PostAndAuthor";
             String postsAuthorsPathToFile = "./src/main/java/project/mvc/data/Posts_Authors.csv";
             createBeans(postsAuthorsPathToClass, doc, rootElement, readCsv(postsAuthorsPathToFile), parametersFromClassPostAuthor);
 

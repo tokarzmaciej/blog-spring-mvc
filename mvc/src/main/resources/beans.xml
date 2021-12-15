@@ -1200,803 +1200,803 @@
         <constructor-arg name="last_name" value="De Simone"/>
         <constructor-arg name="username" value="tdesimone5j"/>
     </bean>
-    <bean class="project.mvc.domain.PostAuthor">
+    <bean class="project.mvc.domain.PostAndAuthor">
         <constructor-arg name="id_post" value="15"/>
         <constructor-arg name="id_author" value="2"/>
     </bean>
-    <bean class="project.mvc.domain.PostAuthor">
+    <bean class="project.mvc.domain.PostAndAuthor">
         <constructor-arg name="id_post" value="88"/>
         <constructor-arg name="id_author" value="173"/>
     </bean>
-    <bean class="project.mvc.domain.PostAuthor">
+    <bean class="project.mvc.domain.PostAndAuthor">
         <constructor-arg name="id_post" value="129"/>
         <constructor-arg name="id_author" value="115"/>
     </bean>
-    <bean class="project.mvc.domain.PostAuthor">
+    <bean class="project.mvc.domain.PostAndAuthor">
         <constructor-arg name="id_post" value="89"/>
         <constructor-arg name="id_author" value="70"/>
     </bean>
-    <bean class="project.mvc.domain.PostAuthor">
+    <bean class="project.mvc.domain.PostAndAuthor">
         <constructor-arg name="id_post" value="30"/>
         <constructor-arg name="id_author" value="35"/>
     </bean>
-    <bean class="project.mvc.domain.PostAuthor">
+    <bean class="project.mvc.domain.PostAndAuthor">
         <constructor-arg name="id_post" value="14"/>
         <constructor-arg name="id_author" value="32"/>
     </bean>
-    <bean class="project.mvc.domain.PostAuthor">
+    <bean class="project.mvc.domain.PostAndAuthor">
         <constructor-arg name="id_post" value="35"/>
         <constructor-arg name="id_author" value="176"/>
     </bean>
-    <bean class="project.mvc.domain.PostAuthor">
+    <bean class="project.mvc.domain.PostAndAuthor">
         <constructor-arg name="id_post" value="95"/>
         <constructor-arg name="id_author" value="93"/>
     </bean>
-    <bean class="project.mvc.domain.PostAuthor">
+    <bean class="project.mvc.domain.PostAndAuthor">
         <constructor-arg name="id_post" value="145"/>
         <constructor-arg name="id_author" value="118"/>
     </bean>
-    <bean class="project.mvc.domain.PostAuthor">
+    <bean class="project.mvc.domain.PostAndAuthor">
         <constructor-arg name="id_post" value="3"/>
         <constructor-arg name="id_author" value="109"/>
     </bean>
-    <bean class="project.mvc.domain.PostAuthor">
+    <bean class="project.mvc.domain.PostAndAuthor">
         <constructor-arg name="id_post" value="42"/>
         <constructor-arg name="id_author" value="33"/>
     </bean>
-    <bean class="project.mvc.domain.PostAuthor">
+    <bean class="project.mvc.domain.PostAndAuthor">
         <constructor-arg name="id_post" value="46"/>
         <constructor-arg name="id_author" value="51"/>
     </bean>
-    <bean class="project.mvc.domain.PostAuthor">
+    <bean class="project.mvc.domain.PostAndAuthor">
         <constructor-arg name="id_post" value="93"/>
         <constructor-arg name="id_author" value="3"/>
     </bean>
-    <bean class="project.mvc.domain.PostAuthor">
+    <bean class="project.mvc.domain.PostAndAuthor">
         <constructor-arg name="id_post" value="89"/>
         <constructor-arg name="id_author" value="99"/>
     </bean>
-    <bean class="project.mvc.domain.PostAuthor">
+    <bean class="project.mvc.domain.PostAndAuthor">
         <constructor-arg name="id_post" value="2"/>
         <constructor-arg name="id_author" value="178"/>
     </bean>
-    <bean class="project.mvc.domain.PostAuthor">
+    <bean class="project.mvc.domain.PostAndAuthor">
         <constructor-arg name="id_post" value="7"/>
         <constructor-arg name="id_author" value="65"/>
     </bean>
-    <bean class="project.mvc.domain.PostAuthor">
+    <bean class="project.mvc.domain.PostAndAuthor">
         <constructor-arg name="id_post" value="66"/>
         <constructor-arg name="id_author" value="81"/>
     </bean>
-    <bean class="project.mvc.domain.PostAuthor">
+    <bean class="project.mvc.domain.PostAndAuthor">
         <constructor-arg name="id_post" value="27"/>
         <constructor-arg name="id_author" value="7"/>
     </bean>
-    <bean class="project.mvc.domain.PostAuthor">
+    <bean class="project.mvc.domain.PostAndAuthor">
         <constructor-arg name="id_post" value="55"/>
         <constructor-arg name="id_author" value="25"/>
     </bean>
-    <bean class="project.mvc.domain.PostAuthor">
+    <bean class="project.mvc.domain.PostAndAuthor">
         <constructor-arg name="id_post" value="5"/>
         <constructor-arg name="id_author" value="119"/>
     </bean>
-    <bean class="project.mvc.domain.PostAuthor">
+    <bean class="project.mvc.domain.PostAndAuthor">
         <constructor-arg name="id_post" value="45"/>
         <constructor-arg name="id_author" value="129"/>
     </bean>
-    <bean class="project.mvc.domain.PostAuthor">
+    <bean class="project.mvc.domain.PostAndAuthor">
         <constructor-arg name="id_post" value="25"/>
         <constructor-arg name="id_author" value="46"/>
     </bean>
-    <bean class="project.mvc.domain.PostAuthor">
+    <bean class="project.mvc.domain.PostAndAuthor">
         <constructor-arg name="id_post" value="36"/>
         <constructor-arg name="id_author" value="113"/>
     </bean>
-    <bean class="project.mvc.domain.PostAuthor">
+    <bean class="project.mvc.domain.PostAndAuthor">
         <constructor-arg name="id_post" value="49"/>
         <constructor-arg name="id_author" value="31"/>
     </bean>
-    <bean class="project.mvc.domain.PostAuthor">
+    <bean class="project.mvc.domain.PostAndAuthor">
         <constructor-arg name="id_post" value="66"/>
         <constructor-arg name="id_author" value="3"/>
     </bean>
-    <bean class="project.mvc.domain.PostAuthor">
+    <bean class="project.mvc.domain.PostAndAuthor">
         <constructor-arg name="id_post" value="6"/>
         <constructor-arg name="id_author" value="72"/>
     </bean>
-    <bean class="project.mvc.domain.PostAuthor">
+    <bean class="project.mvc.domain.PostAndAuthor">
         <constructor-arg name="id_post" value="20"/>
         <constructor-arg name="id_author" value="74"/>
     </bean>
-    <bean class="project.mvc.domain.PostAuthor">
+    <bean class="project.mvc.domain.PostAndAuthor">
         <constructor-arg name="id_post" value="108"/>
         <constructor-arg name="id_author" value="17"/>
     </bean>
-    <bean class="project.mvc.domain.PostAuthor">
+    <bean class="project.mvc.domain.PostAndAuthor">
         <constructor-arg name="id_post" value="56"/>
         <constructor-arg name="id_author" value="10"/>
     </bean>
-    <bean class="project.mvc.domain.PostAuthor">
+    <bean class="project.mvc.domain.PostAndAuthor">
         <constructor-arg name="id_post" value="136"/>
         <constructor-arg name="id_author" value="3"/>
     </bean>
-    <bean class="project.mvc.domain.PostAuthor">
+    <bean class="project.mvc.domain.PostAndAuthor">
         <constructor-arg name="id_post" value="83"/>
         <constructor-arg name="id_author" value="80"/>
     </bean>
-    <bean class="project.mvc.domain.PostAuthor">
+    <bean class="project.mvc.domain.PostAndAuthor">
         <constructor-arg name="id_post" value="140"/>
         <constructor-arg name="id_author" value="124"/>
     </bean>
-    <bean class="project.mvc.domain.PostAuthor">
+    <bean class="project.mvc.domain.PostAndAuthor">
         <constructor-arg name="id_post" value="5"/>
         <constructor-arg name="id_author" value="80"/>
     </bean>
-    <bean class="project.mvc.domain.PostAuthor">
+    <bean class="project.mvc.domain.PostAndAuthor">
         <constructor-arg name="id_post" value="9"/>
         <constructor-arg name="id_author" value="1"/>
     </bean>
-    <bean class="project.mvc.domain.PostAuthor">
+    <bean class="project.mvc.domain.PostAndAuthor">
         <constructor-arg name="id_post" value="127"/>
         <constructor-arg name="id_author" value="187"/>
     </bean>
-    <bean class="project.mvc.domain.PostAuthor">
+    <bean class="project.mvc.domain.PostAndAuthor">
         <constructor-arg name="id_post" value="16"/>
         <constructor-arg name="id_author" value="126"/>
     </bean>
-    <bean class="project.mvc.domain.PostAuthor">
+    <bean class="project.mvc.domain.PostAndAuthor">
         <constructor-arg name="id_post" value="138"/>
         <constructor-arg name="id_author" value="136"/>
     </bean>
-    <bean class="project.mvc.domain.PostAuthor">
+    <bean class="project.mvc.domain.PostAndAuthor">
         <constructor-arg name="id_post" value="111"/>
         <constructor-arg name="id_author" value="142"/>
     </bean>
-    <bean class="project.mvc.domain.PostAuthor">
+    <bean class="project.mvc.domain.PostAndAuthor">
         <constructor-arg name="id_post" value="35"/>
         <constructor-arg name="id_author" value="118"/>
     </bean>
-    <bean class="project.mvc.domain.PostAuthor">
+    <bean class="project.mvc.domain.PostAndAuthor">
         <constructor-arg name="id_post" value="143"/>
         <constructor-arg name="id_author" value="187"/>
     </bean>
-    <bean class="project.mvc.domain.PostAuthor">
+    <bean class="project.mvc.domain.PostAndAuthor">
         <constructor-arg name="id_post" value="146"/>
         <constructor-arg name="id_author" value="139"/>
     </bean>
-    <bean class="project.mvc.domain.PostAuthor">
+    <bean class="project.mvc.domain.PostAndAuthor">
         <constructor-arg name="id_post" value="137"/>
         <constructor-arg name="id_author" value="121"/>
     </bean>
-    <bean class="project.mvc.domain.PostAuthor">
+    <bean class="project.mvc.domain.PostAndAuthor">
         <constructor-arg name="id_post" value="62"/>
         <constructor-arg name="id_author" value="120"/>
     </bean>
-    <bean class="project.mvc.domain.PostAuthor">
+    <bean class="project.mvc.domain.PostAndAuthor">
         <constructor-arg name="id_post" value="80"/>
         <constructor-arg name="id_author" value="164"/>
     </bean>
-    <bean class="project.mvc.domain.PostAuthor">
+    <bean class="project.mvc.domain.PostAndAuthor">
         <constructor-arg name="id_post" value="11"/>
         <constructor-arg name="id_author" value="78"/>
     </bean>
-    <bean class="project.mvc.domain.PostAuthor">
+    <bean class="project.mvc.domain.PostAndAuthor">
         <constructor-arg name="id_post" value="65"/>
         <constructor-arg name="id_author" value="110"/>
     </bean>
-    <bean class="project.mvc.domain.PostAuthor">
+    <bean class="project.mvc.domain.PostAndAuthor">
         <constructor-arg name="id_post" value="8"/>
         <constructor-arg name="id_author" value="174"/>
     </bean>
-    <bean class="project.mvc.domain.PostAuthor">
+    <bean class="project.mvc.domain.PostAndAuthor">
         <constructor-arg name="id_post" value="8"/>
         <constructor-arg name="id_author" value="82"/>
     </bean>
-    <bean class="project.mvc.domain.PostAuthor">
+    <bean class="project.mvc.domain.PostAndAuthor">
         <constructor-arg name="id_post" value="29"/>
         <constructor-arg name="id_author" value="40"/>
     </bean>
-    <bean class="project.mvc.domain.PostAuthor">
+    <bean class="project.mvc.domain.PostAndAuthor">
         <constructor-arg name="id_post" value="58"/>
         <constructor-arg name="id_author" value="119"/>
     </bean>
-    <bean class="project.mvc.domain.PostAuthor">
+    <bean class="project.mvc.domain.PostAndAuthor">
         <constructor-arg name="id_post" value="128"/>
         <constructor-arg name="id_author" value="192"/>
     </bean>
-    <bean class="project.mvc.domain.PostAuthor">
+    <bean class="project.mvc.domain.PostAndAuthor">
         <constructor-arg name="id_post" value="82"/>
         <constructor-arg name="id_author" value="55"/>
     </bean>
-    <bean class="project.mvc.domain.PostAuthor">
+    <bean class="project.mvc.domain.PostAndAuthor">
         <constructor-arg name="id_post" value="142"/>
         <constructor-arg name="id_author" value="177"/>
     </bean>
-    <bean class="project.mvc.domain.PostAuthor">
+    <bean class="project.mvc.domain.PostAndAuthor">
         <constructor-arg name="id_post" value="14"/>
         <constructor-arg name="id_author" value="108"/>
     </bean>
-    <bean class="project.mvc.domain.PostAuthor">
+    <bean class="project.mvc.domain.PostAndAuthor">
         <constructor-arg name="id_post" value="30"/>
         <constructor-arg name="id_author" value="88"/>
     </bean>
-    <bean class="project.mvc.domain.PostAuthor">
+    <bean class="project.mvc.domain.PostAndAuthor">
         <constructor-arg name="id_post" value="23"/>
         <constructor-arg name="id_author" value="135"/>
     </bean>
-    <bean class="project.mvc.domain.PostAuthor">
+    <bean class="project.mvc.domain.PostAndAuthor">
         <constructor-arg name="id_post" value="105"/>
         <constructor-arg name="id_author" value="99"/>
     </bean>
-    <bean class="project.mvc.domain.PostAuthor">
+    <bean class="project.mvc.domain.PostAndAuthor">
         <constructor-arg name="id_post" value="2"/>
         <constructor-arg name="id_author" value="139"/>
     </bean>
-    <bean class="project.mvc.domain.PostAuthor">
+    <bean class="project.mvc.domain.PostAndAuthor">
         <constructor-arg name="id_post" value="26"/>
         <constructor-arg name="id_author" value="53"/>
     </bean>
-    <bean class="project.mvc.domain.PostAuthor">
+    <bean class="project.mvc.domain.PostAndAuthor">
         <constructor-arg name="id_post" value="91"/>
         <constructor-arg name="id_author" value="18"/>
     </bean>
-    <bean class="project.mvc.domain.PostAuthor">
+    <bean class="project.mvc.domain.PostAndAuthor">
         <constructor-arg name="id_post" value="139"/>
         <constructor-arg name="id_author" value="193"/>
     </bean>
-    <bean class="project.mvc.domain.PostAuthor">
+    <bean class="project.mvc.domain.PostAndAuthor">
         <constructor-arg name="id_post" value="101"/>
         <constructor-arg name="id_author" value="41"/>
     </bean>
-    <bean class="project.mvc.domain.PostAuthor">
+    <bean class="project.mvc.domain.PostAndAuthor">
         <constructor-arg name="id_post" value="59"/>
         <constructor-arg name="id_author" value="11"/>
     </bean>
-    <bean class="project.mvc.domain.PostAuthor">
+    <bean class="project.mvc.domain.PostAndAuthor">
         <constructor-arg name="id_post" value="26"/>
         <constructor-arg name="id_author" value="96"/>
     </bean>
-    <bean class="project.mvc.domain.PostAuthor">
+    <bean class="project.mvc.domain.PostAndAuthor">
         <constructor-arg name="id_post" value="105"/>
         <constructor-arg name="id_author" value="178"/>
     </bean>
-    <bean class="project.mvc.domain.PostAuthor">
+    <bean class="project.mvc.domain.PostAndAuthor">
         <constructor-arg name="id_post" value="98"/>
         <constructor-arg name="id_author" value="172"/>
     </bean>
-    <bean class="project.mvc.domain.PostAuthor">
+    <bean class="project.mvc.domain.PostAndAuthor">
         <constructor-arg name="id_post" value="12"/>
         <constructor-arg name="id_author" value="62"/>
     </bean>
-    <bean class="project.mvc.domain.PostAuthor">
+    <bean class="project.mvc.domain.PostAndAuthor">
         <constructor-arg name="id_post" value="142"/>
         <constructor-arg name="id_author" value="56"/>
     </bean>
-    <bean class="project.mvc.domain.PostAuthor">
+    <bean class="project.mvc.domain.PostAndAuthor">
         <constructor-arg name="id_post" value="105"/>
         <constructor-arg name="id_author" value="23"/>
     </bean>
-    <bean class="project.mvc.domain.PostAuthor">
+    <bean class="project.mvc.domain.PostAndAuthor">
         <constructor-arg name="id_post" value="2"/>
         <constructor-arg name="id_author" value="187"/>
     </bean>
-    <bean class="project.mvc.domain.PostAuthor">
+    <bean class="project.mvc.domain.PostAndAuthor">
         <constructor-arg name="id_post" value="102"/>
         <constructor-arg name="id_author" value="192"/>
     </bean>
-    <bean class="project.mvc.domain.PostAuthor">
+    <bean class="project.mvc.domain.PostAndAuthor">
         <constructor-arg name="id_post" value="3"/>
         <constructor-arg name="id_author" value="146"/>
     </bean>
-    <bean class="project.mvc.domain.PostAuthor">
+    <bean class="project.mvc.domain.PostAndAuthor">
         <constructor-arg name="id_post" value="17"/>
         <constructor-arg name="id_author" value="37"/>
     </bean>
-    <bean class="project.mvc.domain.PostAuthor">
+    <bean class="project.mvc.domain.PostAndAuthor">
         <constructor-arg name="id_post" value="6"/>
         <constructor-arg name="id_author" value="140"/>
     </bean>
-    <bean class="project.mvc.domain.PostAuthor">
+    <bean class="project.mvc.domain.PostAndAuthor">
         <constructor-arg name="id_post" value="30"/>
         <constructor-arg name="id_author" value="68"/>
     </bean>
-    <bean class="project.mvc.domain.PostAuthor">
+    <bean class="project.mvc.domain.PostAndAuthor">
         <constructor-arg name="id_post" value="82"/>
         <constructor-arg name="id_author" value="97"/>
     </bean>
-    <bean class="project.mvc.domain.PostAuthor">
+    <bean class="project.mvc.domain.PostAndAuthor">
         <constructor-arg name="id_post" value="65"/>
         <constructor-arg name="id_author" value="66"/>
     </bean>
-    <bean class="project.mvc.domain.PostAuthor">
+    <bean class="project.mvc.domain.PostAndAuthor">
         <constructor-arg name="id_post" value="99"/>
         <constructor-arg name="id_author" value="61"/>
     </bean>
-    <bean class="project.mvc.domain.PostAuthor">
+    <bean class="project.mvc.domain.PostAndAuthor">
         <constructor-arg name="id_post" value="62"/>
         <constructor-arg name="id_author" value="57"/>
     </bean>
-    <bean class="project.mvc.domain.PostAuthor">
+    <bean class="project.mvc.domain.PostAndAuthor">
         <constructor-arg name="id_post" value="86"/>
         <constructor-arg name="id_author" value="79"/>
     </bean>
-    <bean class="project.mvc.domain.PostAuthor">
+    <bean class="project.mvc.domain.PostAndAuthor">
         <constructor-arg name="id_post" value="82"/>
         <constructor-arg name="id_author" value="184"/>
     </bean>
-    <bean class="project.mvc.domain.PostAuthor">
+    <bean class="project.mvc.domain.PostAndAuthor">
         <constructor-arg name="id_post" value="146"/>
         <constructor-arg name="id_author" value="175"/>
     </bean>
-    <bean class="project.mvc.domain.PostAuthor">
+    <bean class="project.mvc.domain.PostAndAuthor">
         <constructor-arg name="id_post" value="73"/>
         <constructor-arg name="id_author" value="109"/>
     </bean>
-    <bean class="project.mvc.domain.PostAuthor">
+    <bean class="project.mvc.domain.PostAndAuthor">
         <constructor-arg name="id_post" value="67"/>
         <constructor-arg name="id_author" value="8"/>
     </bean>
-    <bean class="project.mvc.domain.PostAuthor">
+    <bean class="project.mvc.domain.PostAndAuthor">
         <constructor-arg name="id_post" value="109"/>
         <constructor-arg name="id_author" value="7"/>
     </bean>
-    <bean class="project.mvc.domain.PostAuthor">
+    <bean class="project.mvc.domain.PostAndAuthor">
         <constructor-arg name="id_post" value="36"/>
         <constructor-arg name="id_author" value="173"/>
     </bean>
-    <bean class="project.mvc.domain.PostAuthor">
+    <bean class="project.mvc.domain.PostAndAuthor">
         <constructor-arg name="id_post" value="54"/>
         <constructor-arg name="id_author" value="64"/>
     </bean>
-    <bean class="project.mvc.domain.PostAuthor">
+    <bean class="project.mvc.domain.PostAndAuthor">
         <constructor-arg name="id_post" value="33"/>
         <constructor-arg name="id_author" value="2"/>
     </bean>
-    <bean class="project.mvc.domain.PostAuthor">
+    <bean class="project.mvc.domain.PostAndAuthor">
         <constructor-arg name="id_post" value="10"/>
         <constructor-arg name="id_author" value="185"/>
     </bean>
-    <bean class="project.mvc.domain.PostAuthor">
+    <bean class="project.mvc.domain.PostAndAuthor">
         <constructor-arg name="id_post" value="120"/>
         <constructor-arg name="id_author" value="24"/>
     </bean>
-    <bean class="project.mvc.domain.PostAuthor">
+    <bean class="project.mvc.domain.PostAndAuthor">
         <constructor-arg name="id_post" value="94"/>
         <constructor-arg name="id_author" value="2"/>
     </bean>
-    <bean class="project.mvc.domain.PostAuthor">
+    <bean class="project.mvc.domain.PostAndAuthor">
         <constructor-arg name="id_post" value="67"/>
         <constructor-arg name="id_author" value="52"/>
     </bean>
-    <bean class="project.mvc.domain.PostAuthor">
+    <bean class="project.mvc.domain.PostAndAuthor">
         <constructor-arg name="id_post" value="93"/>
         <constructor-arg name="id_author" value="111"/>
     </bean>
-    <bean class="project.mvc.domain.PostAuthor">
+    <bean class="project.mvc.domain.PostAndAuthor">
         <constructor-arg name="id_post" value="44"/>
         <constructor-arg name="id_author" value="79"/>
     </bean>
-    <bean class="project.mvc.domain.PostAuthor">
+    <bean class="project.mvc.domain.PostAndAuthor">
         <constructor-arg name="id_post" value="26"/>
         <constructor-arg name="id_author" value="110"/>
     </bean>
-    <bean class="project.mvc.domain.PostAuthor">
+    <bean class="project.mvc.domain.PostAndAuthor">
         <constructor-arg name="id_post" value="149"/>
         <constructor-arg name="id_author" value="92"/>
     </bean>
-    <bean class="project.mvc.domain.PostAuthor">
+    <bean class="project.mvc.domain.PostAndAuthor">
         <constructor-arg name="id_post" value="43"/>
         <constructor-arg name="id_author" value="5"/>
     </bean>
-    <bean class="project.mvc.domain.PostAuthor">
+    <bean class="project.mvc.domain.PostAndAuthor">
         <constructor-arg name="id_post" value="148"/>
         <constructor-arg name="id_author" value="194"/>
     </bean>
-    <bean class="project.mvc.domain.PostAuthor">
+    <bean class="project.mvc.domain.PostAndAuthor">
         <constructor-arg name="id_post" value="30"/>
         <constructor-arg name="id_author" value="126"/>
     </bean>
-    <bean class="project.mvc.domain.PostAuthor">
+    <bean class="project.mvc.domain.PostAndAuthor">
         <constructor-arg name="id_post" value="110"/>
         <constructor-arg name="id_author" value="72"/>
     </bean>
-    <bean class="project.mvc.domain.PostAuthor">
+    <bean class="project.mvc.domain.PostAndAuthor">
         <constructor-arg name="id_post" value="141"/>
         <constructor-arg name="id_author" value="136"/>
     </bean>
-    <bean class="project.mvc.domain.PostAuthor">
+    <bean class="project.mvc.domain.PostAndAuthor">
         <constructor-arg name="id_post" value="62"/>
         <constructor-arg name="id_author" value="77"/>
     </bean>
-    <bean class="project.mvc.domain.PostAuthor">
+    <bean class="project.mvc.domain.PostAndAuthor">
         <constructor-arg name="id_post" value="3"/>
         <constructor-arg name="id_author" value="195"/>
     </bean>
-    <bean class="project.mvc.domain.PostAuthor">
+    <bean class="project.mvc.domain.PostAndAuthor">
         <constructor-arg name="id_post" value="9"/>
         <constructor-arg name="id_author" value="135"/>
     </bean>
-    <bean class="project.mvc.domain.PostAuthor">
+    <bean class="project.mvc.domain.PostAndAuthor">
         <constructor-arg name="id_post" value="58"/>
         <constructor-arg name="id_author" value="17"/>
     </bean>
-    <bean class="project.mvc.domain.PostAuthor">
+    <bean class="project.mvc.domain.PostAndAuthor">
         <constructor-arg name="id_post" value="100"/>
         <constructor-arg name="id_author" value="96"/>
     </bean>
-    <bean class="project.mvc.domain.PostAuthor">
+    <bean class="project.mvc.domain.PostAndAuthor">
         <constructor-arg name="id_post" value="46"/>
         <constructor-arg name="id_author" value="119"/>
     </bean>
-    <bean class="project.mvc.domain.PostAuthor">
+    <bean class="project.mvc.domain.PostAndAuthor">
         <constructor-arg name="id_post" value="76"/>
         <constructor-arg name="id_author" value="189"/>
     </bean>
-    <bean class="project.mvc.domain.PostAuthor">
+    <bean class="project.mvc.domain.PostAndAuthor">
         <constructor-arg name="id_post" value="31"/>
         <constructor-arg name="id_author" value="93"/>
     </bean>
-    <bean class="project.mvc.domain.PostAuthor">
+    <bean class="project.mvc.domain.PostAndAuthor">
         <constructor-arg name="id_post" value="111"/>
         <constructor-arg name="id_author" value="167"/>
     </bean>
-    <bean class="project.mvc.domain.PostAuthor">
+    <bean class="project.mvc.domain.PostAndAuthor">
         <constructor-arg name="id_post" value="129"/>
         <constructor-arg name="id_author" value="92"/>
     </bean>
-    <bean class="project.mvc.domain.PostAuthor">
+    <bean class="project.mvc.domain.PostAndAuthor">
         <constructor-arg name="id_post" value="70"/>
         <constructor-arg name="id_author" value="87"/>
     </bean>
-    <bean class="project.mvc.domain.PostAuthor">
+    <bean class="project.mvc.domain.PostAndAuthor">
         <constructor-arg name="id_post" value="83"/>
         <constructor-arg name="id_author" value="16"/>
     </bean>
-    <bean class="project.mvc.domain.PostAuthor">
+    <bean class="project.mvc.domain.PostAndAuthor">
         <constructor-arg name="id_post" value="31"/>
         <constructor-arg name="id_author" value="187"/>
     </bean>
-    <bean class="project.mvc.domain.PostAuthor">
+    <bean class="project.mvc.domain.PostAndAuthor">
         <constructor-arg name="id_post" value="134"/>
         <constructor-arg name="id_author" value="146"/>
     </bean>
-    <bean class="project.mvc.domain.PostAuthor">
+    <bean class="project.mvc.domain.PostAndAuthor">
         <constructor-arg name="id_post" value="73"/>
         <constructor-arg name="id_author" value="41"/>
     </bean>
-    <bean class="project.mvc.domain.PostAuthor">
+    <bean class="project.mvc.domain.PostAndAuthor">
         <constructor-arg name="id_post" value="2"/>
         <constructor-arg name="id_author" value="35"/>
     </bean>
-    <bean class="project.mvc.domain.PostAuthor">
+    <bean class="project.mvc.domain.PostAndAuthor">
         <constructor-arg name="id_post" value="63"/>
         <constructor-arg name="id_author" value="141"/>
     </bean>
-    <bean class="project.mvc.domain.PostAuthor">
+    <bean class="project.mvc.domain.PostAndAuthor">
         <constructor-arg name="id_post" value="12"/>
         <constructor-arg name="id_author" value="87"/>
     </bean>
-    <bean class="project.mvc.domain.PostAuthor">
+    <bean class="project.mvc.domain.PostAndAuthor">
         <constructor-arg name="id_post" value="123"/>
         <constructor-arg name="id_author" value="107"/>
     </bean>
-    <bean class="project.mvc.domain.PostAuthor">
+    <bean class="project.mvc.domain.PostAndAuthor">
         <constructor-arg name="id_post" value="78"/>
         <constructor-arg name="id_author" value="14"/>
     </bean>
-    <bean class="project.mvc.domain.PostAuthor">
+    <bean class="project.mvc.domain.PostAndAuthor">
         <constructor-arg name="id_post" value="35"/>
         <constructor-arg name="id_author" value="181"/>
     </bean>
-    <bean class="project.mvc.domain.PostAuthor">
+    <bean class="project.mvc.domain.PostAndAuthor">
         <constructor-arg name="id_post" value="129"/>
         <constructor-arg name="id_author" value="6"/>
     </bean>
-    <bean class="project.mvc.domain.PostAuthor">
+    <bean class="project.mvc.domain.PostAndAuthor">
         <constructor-arg name="id_post" value="14"/>
         <constructor-arg name="id_author" value="161"/>
     </bean>
-    <bean class="project.mvc.domain.PostAuthor">
+    <bean class="project.mvc.domain.PostAndAuthor">
         <constructor-arg name="id_post" value="47"/>
         <constructor-arg name="id_author" value="114"/>
     </bean>
-    <bean class="project.mvc.domain.PostAuthor">
+    <bean class="project.mvc.domain.PostAndAuthor">
         <constructor-arg name="id_post" value="79"/>
         <constructor-arg name="id_author" value="65"/>
     </bean>
-    <bean class="project.mvc.domain.PostAuthor">
+    <bean class="project.mvc.domain.PostAndAuthor">
         <constructor-arg name="id_post" value="52"/>
         <constructor-arg name="id_author" value="117"/>
     </bean>
-    <bean class="project.mvc.domain.PostAuthor">
+    <bean class="project.mvc.domain.PostAndAuthor">
         <constructor-arg name="id_post" value="72"/>
         <constructor-arg name="id_author" value="134"/>
     </bean>
-    <bean class="project.mvc.domain.PostAuthor">
+    <bean class="project.mvc.domain.PostAndAuthor">
         <constructor-arg name="id_post" value="110"/>
         <constructor-arg name="id_author" value="181"/>
     </bean>
-    <bean class="project.mvc.domain.PostAuthor">
+    <bean class="project.mvc.domain.PostAndAuthor">
         <constructor-arg name="id_post" value="54"/>
         <constructor-arg name="id_author" value="156"/>
     </bean>
-    <bean class="project.mvc.domain.PostAuthor">
+    <bean class="project.mvc.domain.PostAndAuthor">
         <constructor-arg name="id_post" value="82"/>
         <constructor-arg name="id_author" value="105"/>
     </bean>
-    <bean class="project.mvc.domain.PostAuthor">
+    <bean class="project.mvc.domain.PostAndAuthor">
         <constructor-arg name="id_post" value="55"/>
         <constructor-arg name="id_author" value="28"/>
     </bean>
-    <bean class="project.mvc.domain.PostAuthor">
+    <bean class="project.mvc.domain.PostAndAuthor">
         <constructor-arg name="id_post" value="96"/>
         <constructor-arg name="id_author" value="9"/>
     </bean>
-    <bean class="project.mvc.domain.PostAuthor">
+    <bean class="project.mvc.domain.PostAndAuthor">
         <constructor-arg name="id_post" value="76"/>
         <constructor-arg name="id_author" value="155"/>
     </bean>
-    <bean class="project.mvc.domain.PostAuthor">
+    <bean class="project.mvc.domain.PostAndAuthor">
         <constructor-arg name="id_post" value="66"/>
         <constructor-arg name="id_author" value="144"/>
     </bean>
-    <bean class="project.mvc.domain.PostAuthor">
+    <bean class="project.mvc.domain.PostAndAuthor">
         <constructor-arg name="id_post" value="98"/>
         <constructor-arg name="id_author" value="181"/>
     </bean>
-    <bean class="project.mvc.domain.PostAuthor">
+    <bean class="project.mvc.domain.PostAndAuthor">
         <constructor-arg name="id_post" value="32"/>
         <constructor-arg name="id_author" value="103"/>
     </bean>
-    <bean class="project.mvc.domain.PostAuthor">
+    <bean class="project.mvc.domain.PostAndAuthor">
         <constructor-arg name="id_post" value="5"/>
         <constructor-arg name="id_author" value="99"/>
     </bean>
-    <bean class="project.mvc.domain.PostAuthor">
+    <bean class="project.mvc.domain.PostAndAuthor">
         <constructor-arg name="id_post" value="7"/>
         <constructor-arg name="id_author" value="146"/>
     </bean>
-    <bean class="project.mvc.domain.PostAuthor">
+    <bean class="project.mvc.domain.PostAndAuthor">
         <constructor-arg name="id_post" value="19"/>
         <constructor-arg name="id_author" value="166"/>
     </bean>
-    <bean class="project.mvc.domain.PostAuthor">
+    <bean class="project.mvc.domain.PostAndAuthor">
         <constructor-arg name="id_post" value="133"/>
         <constructor-arg name="id_author" value="87"/>
     </bean>
-    <bean class="project.mvc.domain.PostAuthor">
+    <bean class="project.mvc.domain.PostAndAuthor">
         <constructor-arg name="id_post" value="67"/>
         <constructor-arg name="id_author" value="184"/>
     </bean>
-    <bean class="project.mvc.domain.PostAuthor">
+    <bean class="project.mvc.domain.PostAndAuthor">
         <constructor-arg name="id_post" value="45"/>
         <constructor-arg name="id_author" value="131"/>
     </bean>
-    <bean class="project.mvc.domain.PostAuthor">
+    <bean class="project.mvc.domain.PostAndAuthor">
         <constructor-arg name="id_post" value="114"/>
         <constructor-arg name="id_author" value="99"/>
     </bean>
-    <bean class="project.mvc.domain.PostAuthor">
+    <bean class="project.mvc.domain.PostAndAuthor">
         <constructor-arg name="id_post" value="117"/>
         <constructor-arg name="id_author" value="148"/>
     </bean>
-    <bean class="project.mvc.domain.PostAuthor">
+    <bean class="project.mvc.domain.PostAndAuthor">
         <constructor-arg name="id_post" value="15"/>
         <constructor-arg name="id_author" value="170"/>
     </bean>
-    <bean class="project.mvc.domain.PostAuthor">
+    <bean class="project.mvc.domain.PostAndAuthor">
         <constructor-arg name="id_post" value="79"/>
         <constructor-arg name="id_author" value="21"/>
     </bean>
-    <bean class="project.mvc.domain.PostAuthor">
+    <bean class="project.mvc.domain.PostAndAuthor">
         <constructor-arg name="id_post" value="147"/>
         <constructor-arg name="id_author" value="179"/>
     </bean>
-    <bean class="project.mvc.domain.PostAuthor">
+    <bean class="project.mvc.domain.PostAndAuthor">
         <constructor-arg name="id_post" value="13"/>
         <constructor-arg name="id_author" value="49"/>
     </bean>
-    <bean class="project.mvc.domain.PostAuthor">
+    <bean class="project.mvc.domain.PostAndAuthor">
         <constructor-arg name="id_post" value="136"/>
         <constructor-arg name="id_author" value="101"/>
     </bean>
-    <bean class="project.mvc.domain.PostAuthor">
+    <bean class="project.mvc.domain.PostAndAuthor">
         <constructor-arg name="id_post" value="91"/>
         <constructor-arg name="id_author" value="85"/>
     </bean>
-    <bean class="project.mvc.domain.PostAuthor">
+    <bean class="project.mvc.domain.PostAndAuthor">
         <constructor-arg name="id_post" value="12"/>
         <constructor-arg name="id_author" value="57"/>
     </bean>
-    <bean class="project.mvc.domain.PostAuthor">
+    <bean class="project.mvc.domain.PostAndAuthor">
         <constructor-arg name="id_post" value="130"/>
         <constructor-arg name="id_author" value="119"/>
     </bean>
-    <bean class="project.mvc.domain.PostAuthor">
+    <bean class="project.mvc.domain.PostAndAuthor">
         <constructor-arg name="id_post" value="135"/>
         <constructor-arg name="id_author" value="135"/>
     </bean>
-    <bean class="project.mvc.domain.PostAuthor">
+    <bean class="project.mvc.domain.PostAndAuthor">
         <constructor-arg name="id_post" value="25"/>
         <constructor-arg name="id_author" value="126"/>
     </bean>
-    <bean class="project.mvc.domain.PostAuthor">
+    <bean class="project.mvc.domain.PostAndAuthor">
         <constructor-arg name="id_post" value="9"/>
         <constructor-arg name="id_author" value="47"/>
     </bean>
-    <bean class="project.mvc.domain.PostAuthor">
+    <bean class="project.mvc.domain.PostAndAuthor">
         <constructor-arg name="id_post" value="122"/>
         <constructor-arg name="id_author" value="10"/>
     </bean>
-    <bean class="project.mvc.domain.PostAuthor">
+    <bean class="project.mvc.domain.PostAndAuthor">
         <constructor-arg name="id_post" value="103"/>
         <constructor-arg name="id_author" value="182"/>
     </bean>
-    <bean class="project.mvc.domain.PostAuthor">
+    <bean class="project.mvc.domain.PostAndAuthor">
         <constructor-arg name="id_post" value="96"/>
         <constructor-arg name="id_author" value="85"/>
     </bean>
-    <bean class="project.mvc.domain.PostAuthor">
+    <bean class="project.mvc.domain.PostAndAuthor">
         <constructor-arg name="id_post" value="39"/>
         <constructor-arg name="id_author" value="165"/>
     </bean>
-    <bean class="project.mvc.domain.PostAuthor">
+    <bean class="project.mvc.domain.PostAndAuthor">
         <constructor-arg name="id_post" value="27"/>
         <constructor-arg name="id_author" value="145"/>
     </bean>
-    <bean class="project.mvc.domain.PostAuthor">
+    <bean class="project.mvc.domain.PostAndAuthor">
         <constructor-arg name="id_post" value="120"/>
         <constructor-arg name="id_author" value="11"/>
     </bean>
-    <bean class="project.mvc.domain.PostAuthor">
+    <bean class="project.mvc.domain.PostAndAuthor">
         <constructor-arg name="id_post" value="41"/>
         <constructor-arg name="id_author" value="26"/>
     </bean>
-    <bean class="project.mvc.domain.PostAuthor">
+    <bean class="project.mvc.domain.PostAndAuthor">
         <constructor-arg name="id_post" value="71"/>
         <constructor-arg name="id_author" value="149"/>
     </bean>
-    <bean class="project.mvc.domain.PostAuthor">
+    <bean class="project.mvc.domain.PostAndAuthor">
         <constructor-arg name="id_post" value="141"/>
         <constructor-arg name="id_author" value="145"/>
     </bean>
-    <bean class="project.mvc.domain.PostAuthor">
+    <bean class="project.mvc.domain.PostAndAuthor">
         <constructor-arg name="id_post" value="19"/>
         <constructor-arg name="id_author" value="197"/>
     </bean>
-    <bean class="project.mvc.domain.PostAuthor">
+    <bean class="project.mvc.domain.PostAndAuthor">
         <constructor-arg name="id_post" value="128"/>
         <constructor-arg name="id_author" value="174"/>
     </bean>
-    <bean class="project.mvc.domain.PostAuthor">
+    <bean class="project.mvc.domain.PostAndAuthor">
         <constructor-arg name="id_post" value="140"/>
         <constructor-arg name="id_author" value="25"/>
     </bean>
-    <bean class="project.mvc.domain.PostAuthor">
+    <bean class="project.mvc.domain.PostAndAuthor">
         <constructor-arg name="id_post" value="32"/>
         <constructor-arg name="id_author" value="68"/>
     </bean>
-    <bean class="project.mvc.domain.PostAuthor">
+    <bean class="project.mvc.domain.PostAndAuthor">
         <constructor-arg name="id_post" value="29"/>
         <constructor-arg name="id_author" value="103"/>
     </bean>
-    <bean class="project.mvc.domain.PostAuthor">
+    <bean class="project.mvc.domain.PostAndAuthor">
         <constructor-arg name="id_post" value="122"/>
         <constructor-arg name="id_author" value="3"/>
     </bean>
-    <bean class="project.mvc.domain.PostAuthor">
+    <bean class="project.mvc.domain.PostAndAuthor">
         <constructor-arg name="id_post" value="99"/>
         <constructor-arg name="id_author" value="160"/>
     </bean>
-    <bean class="project.mvc.domain.PostAuthor">
+    <bean class="project.mvc.domain.PostAndAuthor">
         <constructor-arg name="id_post" value="57"/>
         <constructor-arg name="id_author" value="132"/>
     </bean>
-    <bean class="project.mvc.domain.PostAuthor">
+    <bean class="project.mvc.domain.PostAndAuthor">
         <constructor-arg name="id_post" value="40"/>
         <constructor-arg name="id_author" value="5"/>
     </bean>
-    <bean class="project.mvc.domain.PostAuthor">
+    <bean class="project.mvc.domain.PostAndAuthor">
         <constructor-arg name="id_post" value="28"/>
         <constructor-arg name="id_author" value="43"/>
     </bean>
-    <bean class="project.mvc.domain.PostAuthor">
+    <bean class="project.mvc.domain.PostAndAuthor">
         <constructor-arg name="id_post" value="27"/>
         <constructor-arg name="id_author" value="154"/>
     </bean>
-    <bean class="project.mvc.domain.PostAuthor">
+    <bean class="project.mvc.domain.PostAndAuthor">
         <constructor-arg name="id_post" value="5"/>
         <constructor-arg name="id_author" value="67"/>
     </bean>
-    <bean class="project.mvc.domain.PostAuthor">
+    <bean class="project.mvc.domain.PostAndAuthor">
         <constructor-arg name="id_post" value="65"/>
         <constructor-arg name="id_author" value="167"/>
     </bean>
-    <bean class="project.mvc.domain.PostAuthor">
+    <bean class="project.mvc.domain.PostAndAuthor">
         <constructor-arg name="id_post" value="58"/>
         <constructor-arg name="id_author" value="35"/>
     </bean>
-    <bean class="project.mvc.domain.PostAuthor">
+    <bean class="project.mvc.domain.PostAndAuthor">
         <constructor-arg name="id_post" value="124"/>
         <constructor-arg name="id_author" value="123"/>
     </bean>
-    <bean class="project.mvc.domain.PostAuthor">
+    <bean class="project.mvc.domain.PostAndAuthor">
         <constructor-arg name="id_post" value="5"/>
         <constructor-arg name="id_author" value="39"/>
     </bean>
-    <bean class="project.mvc.domain.PostAuthor">
+    <bean class="project.mvc.domain.PostAndAuthor">
         <constructor-arg name="id_post" value="56"/>
         <constructor-arg name="id_author" value="158"/>
     </bean>
-    <bean class="project.mvc.domain.PostAuthor">
+    <bean class="project.mvc.domain.PostAndAuthor">
         <constructor-arg name="id_post" value="150"/>
         <constructor-arg name="id_author" value="24"/>
     </bean>
-    <bean class="project.mvc.domain.PostAuthor">
+    <bean class="project.mvc.domain.PostAndAuthor">
         <constructor-arg name="id_post" value="67"/>
         <constructor-arg name="id_author" value="175"/>
     </bean>
-    <bean class="project.mvc.domain.PostAuthor">
+    <bean class="project.mvc.domain.PostAndAuthor">
         <constructor-arg name="id_post" value="53"/>
         <constructor-arg name="id_author" value="80"/>
     </bean>
-    <bean class="project.mvc.domain.PostAuthor">
+    <bean class="project.mvc.domain.PostAndAuthor">
         <constructor-arg name="id_post" value="94"/>
         <constructor-arg name="id_author" value="71"/>
     </bean>
-    <bean class="project.mvc.domain.PostAuthor">
+    <bean class="project.mvc.domain.PostAndAuthor">
         <constructor-arg name="id_post" value="28"/>
         <constructor-arg name="id_author" value="156"/>
     </bean>
-    <bean class="project.mvc.domain.PostAuthor">
+    <bean class="project.mvc.domain.PostAndAuthor">
         <constructor-arg name="id_post" value="101"/>
         <constructor-arg name="id_author" value="58"/>
     </bean>
-    <bean class="project.mvc.domain.PostAuthor">
+    <bean class="project.mvc.domain.PostAndAuthor">
         <constructor-arg name="id_post" value="70"/>
         <constructor-arg name="id_author" value="16"/>
     </bean>
-    <bean class="project.mvc.domain.PostAuthor">
+    <bean class="project.mvc.domain.PostAndAuthor">
         <constructor-arg name="id_post" value="118"/>
         <constructor-arg name="id_author" value="113"/>
     </bean>
-    <bean class="project.mvc.domain.PostAuthor">
+    <bean class="project.mvc.domain.PostAndAuthor">
         <constructor-arg name="id_post" value="3"/>
         <constructor-arg name="id_author" value="198"/>
     </bean>
-    <bean class="project.mvc.domain.PostAuthor">
+    <bean class="project.mvc.domain.PostAndAuthor">
         <constructor-arg name="id_post" value="112"/>
         <constructor-arg name="id_author" value="33"/>
     </bean>
-    <bean class="project.mvc.domain.PostAuthor">
+    <bean class="project.mvc.domain.PostAndAuthor">
         <constructor-arg name="id_post" value="62"/>
         <constructor-arg name="id_author" value="46"/>
     </bean>
-    <bean class="project.mvc.domain.PostAuthor">
+    <bean class="project.mvc.domain.PostAndAuthor">
         <constructor-arg name="id_post" value="78"/>
         <constructor-arg name="id_author" value="44"/>
     </bean>
-    <bean class="project.mvc.domain.PostAuthor">
+    <bean class="project.mvc.domain.PostAndAuthor">
         <constructor-arg name="id_post" value="128"/>
         <constructor-arg name="id_author" value="192"/>
     </bean>
-    <bean class="project.mvc.domain.PostAuthor">
+    <bean class="project.mvc.domain.PostAndAuthor">
         <constructor-arg name="id_post" value="59"/>
         <constructor-arg name="id_author" value="75"/>
     </bean>
-    <bean class="project.mvc.domain.PostAuthor">
+    <bean class="project.mvc.domain.PostAndAuthor">
         <constructor-arg name="id_post" value="80"/>
         <constructor-arg name="id_author" value="59"/>
     </bean>
-    <bean class="project.mvc.domain.PostAuthor">
+    <bean class="project.mvc.domain.PostAndAuthor">
         <constructor-arg name="id_post" value="60"/>
         <constructor-arg name="id_author" value="51"/>
     </bean>
-    <bean class="project.mvc.domain.PostAuthor">
+    <bean class="project.mvc.domain.PostAndAuthor">
         <constructor-arg name="id_post" value="104"/>
         <constructor-arg name="id_author" value="83"/>
     </bean>
-    <bean class="project.mvc.domain.PostAuthor">
+    <bean class="project.mvc.domain.PostAndAuthor">
         <constructor-arg name="id_post" value="73"/>
         <constructor-arg name="id_author" value="42"/>
     </bean>

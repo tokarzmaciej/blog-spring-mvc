@@ -1,6 +1,7 @@
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Blog</title>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.3/css/bulma.min.css">
     <link rel="canonical" href="https://bulma.io/documentation/components/navbar/">
@@ -60,7 +61,7 @@
                 <div class="navbar-item">
                     <div class="buttons">
                         <a class="button is-primary
-                         mr-3">
+                         mr-3" th:href="@{/create/post}">
                             <strong>Add Post</strong>
                         </a>
                     </div>
@@ -70,8 +71,9 @@
     </nav>
 
 
-    <div class="posts mt-6" style="display:flex;justify-content:center" th:each="post : ${posts}">
-        <div class="card has-background-white-bis" style="width:50%;">
+    <div class="posts mt-6 mb-6"
+         style="display:flex;justify-content:center; align-items: center; flex-direction: column-reverse">
+        <div class="card has-background-white-bis" style="width:50%;" th:each="post : ${posts}">
             <div class="is-flex is-justify-content-right">
                 <button class="delete m-3 is-medium"></button>
             </div>
