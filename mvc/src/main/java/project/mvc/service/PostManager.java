@@ -10,5 +10,6 @@ public interface PostManager {
     List<Post> getAllPosts();
     Boolean deletePost(String idPost);
     List<Post> getPost(String idPost);
+    Post editPost(String idPost,PostForm postForm);
 
 }

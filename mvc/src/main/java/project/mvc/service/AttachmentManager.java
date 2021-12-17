@@ -11,6 +11,7 @@ public interface AttachmentManager {
 
     void deleteAttachmentByIdPost(String idPost);
 
+    void setDb(List<Attachment> db);
 
 }
 

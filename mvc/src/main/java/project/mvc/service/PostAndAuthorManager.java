@@ -10,4 +10,9 @@ public interface PostAndAuthorManager {
     List<PostAndAuthor> getAllPostAndAuthor();
 
     void deletePostAndAuthorByIdPost(String idPost);
+
+    void setDb(List<PostAndAuthor> db);
+
+    List<String> getIdAuthorsForPost(String idPost);
+
 }

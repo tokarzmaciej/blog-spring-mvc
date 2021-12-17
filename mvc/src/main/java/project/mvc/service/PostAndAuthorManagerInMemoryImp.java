@@ -35,4 +35,12 @@ public class PostAndAuthorManagerInMemoryImp implements PostAndAuthorManager {
         setDb(db.stream().filter(row -> !Objects.equals(row.getId_post(), idPost))
                 .collect(Collectors.toList()));
     }
+
+    @Override
+    public List<String> getIdAuthorsForPost(String idPost) {
+        return db.stream().filter(row -> Objects.equals(row.getId_post(), idPost))
+                .map(PostAndAuthor::getId_author).collect(Collectors.toList());
+    }
+
+
 }

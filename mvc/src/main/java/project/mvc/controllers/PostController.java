@@ -12,11 +12,14 @@ import org.springframework.web.bind.annotation.*;
 import project.mvc.domain.Post;
 import project.mvc.domain.PostForm;
 import project.mvc.service.AuthorManager;
+import project.mvc.service.PostAndAuthorManager;
 import project.mvc.service.PostManager;
 import project.mvc.storage.StorageFileNotFoundException;
 import project.mvc.storage.StorageService;
 
 import javax.validation.Valid;
+import java.util.ArrayList;
+import java.util.List;
 
 @Slf4j
 @Controller
@@ -25,11 +28,13 @@ public class PostController {
     private final PostManager postManager;
     private final AuthorManager authorManager;
     private final StorageService storageService;
+    private final PostAndAuthorManager postAndAuthorManager;
 
-    public PostController(PostManager postManager, AuthorManager authorManager, StorageService storageService) {
+    public PostController(PostManager postManager, AuthorManager authorManager, StorageService storageService, PostAndAuthorManager postAndAuthorManager) {
         this.postManager = postManager;
         this.authorManager = authorManager;
         this.storageService = storageService;
+        this.postAndAuthorManager = postAndAuthorManager;
     }
 
     @GetMapping("/files/image/{filename:.+}")
@@ -51,9 +56,16 @@ public class PostController {
     }
 
     @GetMapping("/post/create")
-    public String form(Model model) {
+    public String create(Model model) {
+        List<String> selectedAuthors = new ArrayList<>();
+        Post newPost = new Post("", "", "");
         model.addAttribute("postForm", new PostForm());
         model.addAttribute("authors", authorManager.getAllAuthors());
+        model.addAttribute("link", "/post/create");
+        model.addAttribute("function", "Creating a post");
+        model.addAttribute("postToEdit", newPost);
+        model.addAttribute("selectedAuthors", selectedAuthors);
+
 
         return "postForm";
     }
@@ -83,8 +95,40 @@ public class PostController {
         }
     }
 
+    @GetMapping("/post/edit/{idPost}")
+    public String edit(@PathVariable String idPost, Model model) {
+        List<Post> postToEdit = postManager.getPost(idPost);
+        if (postToEdit.size() == 1) {
+            model.addAttribute("postForm", new PostForm());
+            model.addAttribute("authors", authorManager.getAllAuthors());
+            model.addAttribute("link", "/post/edit/" + idPost);
+            model.addAttribute("function", "Editing a post");
+            model.addAttribute("postToEdit", postManager.getPost(idPost).get(0));
+            model.addAttribute("selectedAuthors", postAndAuthorManager.getIdAuthorsForPost(idPost));
+        } else {
+            return "redirect:/noPage";
+        }
+
+        return "postForm";
+    }
+
+    @PostMapping("/post/edit/{idPost}")
+    public String editPost(Model model, @PathVariable String idPost, @Valid PostForm postForm, Errors errors) {
+        if (errors.hasErrors()) {
+            model.addAttribute("authors", authorManager.getAllAuthors());
+            return "postForm";
+        } else {
+            storageService.storeImage(postForm.getImageFile());
+            storageService.storeAttachment(postForm.getAttachment());
+            Post postToEdit = postManager.editPost(idPost, postForm);
+            log.info("Post edited: " + postToEdit);
+
+        }
+        return "redirect:/";
+    }
+
     @ExceptionHandler(StorageFileNotFoundException.class)
-    public ResponseEntity<?> handleStorageFileNotFound(StorageFileNotFoundException exc) {
+    public ResponseEntity<?> handleStorageFileNotFound() {
         return ResponseEntity.notFound().build();
     }
 }

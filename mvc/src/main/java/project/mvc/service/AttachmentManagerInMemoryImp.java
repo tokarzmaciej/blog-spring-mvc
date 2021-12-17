@@ -35,4 +35,6 @@ class AttachmentManagerInMemoryImpl implements AttachmentManager {
         setDb(db.stream().filter(attachment -> !Objects.equals(attachment.getId_post(), idPost))
                 .collect(Collectors.toList()));
     }
+
+
 }

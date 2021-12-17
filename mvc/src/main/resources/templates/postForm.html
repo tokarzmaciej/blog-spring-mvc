@@ -13,33 +13,6 @@
     <script>$(function () {
         $('select').chosen();
     })</script>
-    <script>
-        document.addEventListener('DOMContentLoaded', () => {
-
-            // Get all "navbar-burger" elements
-            const $navbarBurgers = Array.prototype.slice.call(document.querySelectorAll('.navbar-burger'), 0);
-
-            // Check if there are any navbar burgers
-            if ($navbarBurgers.length > 0) {
-
-                // Add a click event on each of them
-                $navbarBurgers.forEach(el => {
-                    el.addEventListener('click', () => {
-
-                        // Get the target from the "data-target" attribute
-                        const target = el.dataset.target;
-                        const $target = document.getElementById(target);
-
-                        // Toggle the "is-active" class on both the "navbar-burger" and the "navbar-menu"
-                        el.classList.toggle('is-active');
-                        $target.classList.toggle('is-active');
-
-                    });
-                });
-            }
-
-        });
-    </script>
 
 
 </head>
@@ -59,44 +32,13 @@
 </style>
 
 <div>
-    <nav class="navbar  is-dark">
-        <div class="navbar-brand">
-            <a class="navbar-item" href="/">
-                <p class="title has-text-white ml-5">BLOG</p>
-            </a>
-            <div class="navbar-burger" data-target="navbarExampleTransparentExample">
-                <span></span>
-                <span></span>
-                <span></span>
-            </div>
-        </div>
-        <div id="navbarExampleTransparentExample" class="navbar-menu">
-            <div class="navbar-start">
-                <a class="navbar-item">
-                    Posts
-                </a>
+    <nav th:insert="navbar :: nav"></nav>
 
-                <a class="navbar-item">
-                    Authors
-                </a>
-            </div>
-            <div class="navbar-end">
-                <div class="navbar-item">
-                    <div class="buttons">
-                        <a class="button is-success
-                         mr-3" th:href="@{/create/post}">
-                            <strong>Add Post</strong>
-                        </a>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </nav>
     <div class="is-size-1 mt-6" style="display:flex;justify-content:center">
-        <h1 class="title has-text-link ">Creating a post</h1>
+        <h1 class="title has-text-link" th:text="${function}"></h1>
     </div>
     <div class="formForPost mt-6 is-size-1" style="display:flex;justify-content:center">
-        <form method="POST" th:action="@{/create/post}" th:object="${postForm}" enctype="multipart/form-data"
+        <form method="POST" th:action="@{{link}(link=${link})}" th:object="${postForm}" enctype="multipart/form-data"
         >
             <div th:if="${#fields.hasErrors()}">
                   <span class="help is-danger is-size-5">
@@ -106,7 +48,9 @@
             <div class="field mt-2">
                 <label class="label">Tags</label>
                 <div class="control">
-                    <input class="input" type="text" th:field="*{tags}" placeholder="Tag1  tag2 ..."/>
+                    <input class="input" type="text" th:name="tags" th:id="tags"
+                           th:value="${postToEdit?.getTags()}"
+                           placeholder="Tag1 tag2 ..."/>
                     <p class="help is-danger is-size-6"
                        th:if="${#fields.hasErrors('tags')}"
                        th:errors="*{tags}">Tags Error
@@ -117,7 +61,8 @@
             <div class="field mt-5">
                 <label class="label has-text-link">Content</label>
                 <div class="control">
-                    <textarea class="textarea" th:field="*{post_content}" placeholder="Text input ..."/>
+                    <textarea class="textarea" th:name="post_content" th:id="post_content"
+                              th:text="${postToEdit?.getPost_content()}" placeholder="Text input ..."></textarea>
                     <p class="help is-danger is-size-6"
                        th:if="${#fields.hasErrors('post_content')}"
                        th:errors="*{post_content}">Content Error >
@@ -129,13 +74,15 @@
                 <label class="label">Authors</label>
                 <div class="control">
                     <div class="select is-multiple">
-                        <select class="is-size-5 mt-6 mb-6" id="authorsPost" th:field="*{authorsPost}"
+                        <select class="is-size-5 mt-6 mb-6" id="authorsPost"
+                                th:name="authorsPost" th:id="authorsPost"
                                 multiple="multiple" placeholder="text" style="height:40px">
                             <option value=""></option>
                             <option value=""></option>
                             <option th:each="author : ${authors}"
                                     th:value="${author.getId()}"
                                     th:text="${author.getFirst_name()}"
+                                    th:selected="${selectedAuthors?.contains(author?.getId())}"
                             >
                             </option>
                         </select>

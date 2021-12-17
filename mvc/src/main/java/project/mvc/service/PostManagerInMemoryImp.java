@@ -37,6 +37,13 @@ public class PostManagerInMemoryImp implements PostManager {
             postAndAuthorManager.addPostAndAuthor(postAndAuthor);
         }
 
+        addAttachmentsForPost(postForm, idPost);
+
+        db.add(postToAdd);
+        return postToAdd;
+    }
+
+    private void addAttachmentsForPost(PostForm postForm, String idPost) {
         String imageName = postForm.getImageFile().getOriginalFilename();
         String urlForImage = "http://localhost:8080/files/image/" + imageName;
         Attachment image = new Attachment(idPost, urlForImage);
@@ -46,9 +53,6 @@ public class PostManagerInMemoryImp implements PostManager {
         String urlForAttachment = "http://localhost:8080/files/attachment/" + attachmentName;
         Attachment attachment = new Attachment(idPost, urlForAttachment);
         attachmentManager.addAttachment(attachment);
-
-        db.add(postToAdd);
-        return postToAdd;
     }
 
     @Override
@@ -59,6 +63,38 @@ public class PostManagerInMemoryImp implements PostManager {
     @Override
     public List<Post> getPost(String idPost) {
         return db.stream().filter(post -> Objects.equals(post.getId(), idPost)).collect(Collectors.toList());
+    }
+
+    @Override
+    public Post editPost(String idPost, PostForm postForm) {
+        Post postToEdit = new Post(idPost, postForm.getPost_content(), postForm.getTags());
+        postAndAuthorManager.setDb(
+                postAndAuthorManager
+                        .getAllPostAndAuthor()
+                        .stream().filter(row -> !Objects.equals(row.getId_post(), idPost))
+                        .collect(Collectors.toList()));
+
+        for (String idAuthor : postForm.getAuthorsPost()) {
+            PostAndAuthor postAndAuthor = new PostAndAuthor(idPost, idAuthor);
+            postAndAuthorManager.addPostAndAuthor(postAndAuthor);
+        }
+
+        attachmentManager.setDb(
+                attachmentManager
+                        .getAllAttachments()
+                        .stream().filter(attachemnt -> !Objects.equals(attachemnt.getId_post(), idPost))
+                        .collect(Collectors.toList()));
+
+        addAttachmentsForPost(postForm, idPost);
+        setDb(db.stream().map(post -> {
+            if (Objects.equals(post.getId(), idPost)) {
+                return postToEdit;
+            } else {
+                return post;
+            }
+        }).collect(Collectors.toList()));
+
+        return postToEdit;
     }
 
     @Override
