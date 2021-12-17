@@ -34,7 +34,18 @@
     });
 </script>
 <body>
+<style>
+    .card {
+        width: 50%;
 
+    }
+
+    @media (max-width: 600px) {
+        .card {
+            width: 80%;
+        }
+    }
+</style>
 <div>
     <nav class="navbar  is-dark">
         <div class="navbar-brand">
@@ -73,7 +84,7 @@
 
     <div class="posts mt-6 mb-6"
          style="display:flex;justify-content:center; align-items: center; flex-direction: column-reverse">
-        <div class="card has-background-white-bis" style="width:50%;" th:each="post : ${posts}">
+        <div class="card has-background-white-bis mt-6"  th:each="post : ${posts}">
             <div class="is-flex is-justify-content-right">
                 <button class="delete m-3 is-medium"></button>
             </div>

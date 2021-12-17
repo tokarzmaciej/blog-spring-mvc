@@ -3,6 +3,9 @@ package project.mvc.domain;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+import org.springframework.web.multipart.MultipartFile;
+import project.mvc.validators.IsImageFile;
+import project.mvc.validators.IsNotEmpty;
 
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.Size;
@@ -21,5 +24,10 @@ public class PostForm {
     private String post_content;
     @NotBlank(message = "Tags is required")
     private String tags;
+    @IsImageFile
+    @IsNotEmpty
+    private MultipartFile imageFile;
+    @IsNotEmpty
+    private MultipartFile attachment;
 
 }

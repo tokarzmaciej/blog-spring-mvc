@@ -2,21 +2,22 @@ package project.mvc.service;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import project.mvc.domain.Attachment;
 import project.mvc.domain.Author;
 
 import java.util.List;
-import java.util.UUID;
 
 
 @Service
-class AuthorManagerInMemoryImpl implements AuthorManager {
+class AuthorsManagerInMemoryImpl implements AuthorManager {
 
 
-    @Autowired List<Author> db;
+    @Autowired
+    List<Author> db;
 
     @Override
     public Author addAuthor(Author author) {
-        Author authorToAdd = new Author(UUID.randomUUID().toString(), author.getFirst_name(), author.getLast_name(), author.getUsername());
+        Author authorToAdd = new Author(author.getId(), author.getFirst_name(), author.getLast_name(), author.getUsername());
         db.add(authorToAdd);
         return authorToAdd;
     }

@@ -9,6 +9,7 @@
     <link rel="canonical" href="https://bulma.io/documentation/components/navbar/">
     <script src="https://harvesthq.github.io/chosen/docsupport/jquery-3.2.1.min.js"></script>
     <script src="https://harvesthq.github.io/chosen/chosen.jquery.js"></script>
+    <script defer src="https://use.fontawesome.com/releases/v5.3.1/js/all.js"></script>
     <script>$(function () {
         $('select').chosen();
     })</script>
@@ -39,9 +40,23 @@
 
         });
     </script>
+
+
 </head>
 <body>
 
+<style>
+    form {
+        width: 40%;
+
+    }
+
+    @media (max-width: 600px) {
+        form {
+            width: 80%;
+        }
+    }
+</style>
 
 <div>
     <nav class="navbar  is-dark">
@@ -81,8 +96,8 @@
         <h1 class="title has-text-link ">Creating a post</h1>
     </div>
     <div class="formForPost mt-6 is-size-1" style="display:flex;justify-content:center">
-
-        <form method="POST" th:action="@{/create/post}" th:object="${postForm}" style="width:40%">
+        <form method="POST" th:action="@{/create/post}" th:object="${postForm}" enctype="multipart/form-data"
+        >
             <div th:if="${#fields.hasErrors()}">
                   <span class="help is-danger is-size-5">
                      Please correct the problems below and resubmit.
@@ -91,7 +106,7 @@
             <div class="field mt-2">
                 <label class="label">Tags</label>
                 <div class="control">
-                    <input class="input" type="text" th:field="*{tags}" placeholder="Tags #..."/>
+                    <input class="input" type="text" th:field="*{tags}" placeholder="Tag1  tag2 ..."/>
                     <p class="help is-danger is-size-6"
                        th:if="${#fields.hasErrors('tags')}"
                        th:errors="*{tags}">Tags Error
@@ -110,7 +125,7 @@
                     </p>
                 </div>
             </div>
-            <div class="field mt-5">
+            <div class="field mt-3">
                 <label class="label">Authors</label>
                 <div class="control">
                     <div class="select is-multiple">
@@ -132,12 +147,82 @@
                     </p>
                 </div>
             </div>
+            <label class="label mt-5">Attachment</label>
+
+            <div id="imageInput" class="file has-name is-size-7-mobile is-medium mr-5 is-info">
+                <label class="file-label">
+                    <span class="file-name mr-5" style=" border-width: 0">
+                      No file uploaded
+                    </span>
+                    <input class="file-input" type="file" name="resume" th:field="*{imageFile}">
+                    <span class="file-cta" style="border-radius: 4px 4px 4px 4px">
+                      <span class="file-icon">
+                        <i class="fas fa-upload"></i>
+                      </span>
+                      <span class="file-label">
+                        Choose an image file
+                      </span>
+                    </span>
+
+                </label>
+                <p class="help is-danger is-small"
+                   th:if="${#fields.hasErrors('imageFile')}"
+                   th:errors="*{imageFile}">Image file Error
+
+                </p>
+            </div>
+            <label class="label mt-2">Photo</label>
+
+            <div id="attachmentInput" class="file is-size-7-mobile has-name  is-medium mt-2 is-info">
+                <label class="file-label">
+                    <span class="file-name mr-5" style=" border-width: 0">
+                      No file uploaded
+                    </span>
+
+                    <input class="file-input " type="file" name="resume" th:field="*{attachment} ">
+                    <span class="file-cta " style="border-radius: 4px 4px 4px 4px">
+                      <span class="file-icon">
+                        <i class="fas fa-upload"></i>
+                      </span>
+                        <span class="file-label">
+                        Attach an attachment
+                        </span>
+                    </span>
+
+
+                </label>
+
+                <p class="help is-danger is-size-6"
+                   th:if="${#fields.hasErrors('attachment')}"
+                   th:errors="*{attachment}">Attachment Error
+
+                </p>
+            </div>
+
+
             <div class="field" style="display:flex;justify-content:center;">
-                <input class="button is-primary mt-5 " type="submit" name="action" value="Submit"
+                <input class="button is-primary mt-6 mb-6" type="submit" name="action" value="Submit"
                        style="display:flex;justify-content:center; width: 40%"/>
             </div>
         </form>
     </div>
 </div>
+<script>
+    const imageInput = document.querySelector('#imageInput input[type=file]');
+    imageInput.onchange = () => {
+        if (imageInput.files.length > 0) {
+            const fileName = document.querySelector('#imageInput .file-name');
+            fileName.textContent = imageInput.files[0].name;
+        }
+    }
+
+    const attachmentInput = document.querySelector('#attachmentInput input[type=file]');
+    attachmentInput.onchange = () => {
+        if (attachmentInput.files.length > 0) {
+            const fileName = document.querySelector('#attachmentInput .file-name');
+            fileName.textContent = attachmentInput.files[0].name;
+        }
+    }
+</script>
 </body>
 </html>
