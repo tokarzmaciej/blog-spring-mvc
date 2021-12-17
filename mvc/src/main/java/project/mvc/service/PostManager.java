@@ -7,6 +7,8 @@ import java.util.List;
 
 public interface PostManager {
     Post addPost(PostForm postForm);
-
     List<Post> getAllPosts();
+    Boolean deletePost(String idPost);
+    List<Post> getPost(String idPost);
+
 }

@@ -9,5 +9,8 @@ public interface AttachmentManager {
 
     List<Attachment> getAllAttachments();
 
+    void deleteAttachmentByIdPost(String idPost);
+
+
 }
 

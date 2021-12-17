@@ -71,8 +71,8 @@
             <div class="navbar-end">
                 <div class="navbar-item">
                     <div class="buttons">
-                        <a class="button is-primary
-                         mr-3" th:href="@{/create/post}">
+                        <a class="button is-success
+                         mr-3" th:href="@{/post/create}">
                             <strong>Add Post</strong>
                         </a>
                     </div>
@@ -84,9 +84,12 @@
 
     <div class="posts mt-6 mb-6"
          style="display:flex;justify-content:center; align-items: center; flex-direction: column-reverse">
-        <div class="card has-background-white-bis mt-6"  th:each="post : ${posts}">
+        <div class="card has-background-white-bis mt-6" th:each="post : ${posts}">
             <div class="is-flex is-justify-content-right">
-                <button class="delete m-3 is-medium"></button>
+                <a th:href="@{/post/delete/{idPost}(idPost=${post.getId()})}">
+                    <button class="delete m-3 is-medium has-background-danger "></button>
+                </a>
+
             </div>
             <div class="card-content">
                 <div class="media-content">

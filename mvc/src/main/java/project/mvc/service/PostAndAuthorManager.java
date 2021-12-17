@@ -8,4 +8,6 @@ public interface PostAndAuthorManager {
     PostAndAuthor addPostAndAuthor(PostAndAuthor postAndAuthor);
 
     List<PostAndAuthor> getAllPostAndAuthor();
+
+    void deletePostAndAuthorByIdPost(String idPost);
 }

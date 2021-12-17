@@ -83,7 +83,7 @@
             <div class="navbar-end">
                 <div class="navbar-item">
                     <div class="buttons">
-                        <a class="button is-primary
+                        <a class="button is-success
                          mr-3" th:href="@{/create/post}">
                             <strong>Add Post</strong>
                         </a>
@@ -147,9 +147,10 @@
                     </p>
                 </div>
             </div>
-            <label class="label mt-5">Attachment</label>
+            <label class="label mt-5">Photo</label>
 
-            <div id="imageInput" class="file has-name is-size-7-mobile is-medium mr-5 is-info">
+
+            <div id="imageInput" class="file has-name is-size-7-mobile is-medium  is-info">
                 <label class="file-label">
                     <span class="file-name mr-5" style=" border-width: 0">
                       No file uploaded
@@ -159,7 +160,7 @@
                       <span class="file-icon">
                         <i class="fas fa-upload"></i>
                       </span>
-                      <span class="file-label">
+                      <span class="file-label pr-1">
                         Choose an image file
                       </span>
                     </span>
@@ -171,7 +172,7 @@
 
                 </p>
             </div>
-            <label class="label mt-2">Photo</label>
+            <label class="label mt-2">Attachment</label>
 
             <div id="attachmentInput" class="file is-size-7-mobile has-name  is-medium mt-2 is-info">
                 <label class="file-label">
@@ -201,7 +202,7 @@
 
 
             <div class="field" style="display:flex;justify-content:center;">
-                <input class="button is-primary mt-6 mb-6" type="submit" name="action" value="Submit"
+                <input class="button is-success mt-6 mb-6" type="submit" name="action" value="Submit"
                        style="display:flex;justify-content:center; width: 40%"/>
             </div>
         </form>

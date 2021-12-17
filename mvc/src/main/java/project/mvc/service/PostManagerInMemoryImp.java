@@ -1,5 +1,6 @@
 package project.mvc.service;
 
+import lombok.Setter;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import project.mvc.domain.Attachment;
@@ -7,20 +8,24 @@ import project.mvc.domain.Post;
 import project.mvc.domain.PostAndAuthor;
 import project.mvc.domain.PostForm;
 
-import java.util.List;
-import java.util.UUID;
+import java.util.*;
+import java.util.stream.Collectors;
 
 @Service
 public class PostManagerInMemoryImp implements PostManager {
 
+    @Setter
+    private List<Post> db;
     private final PostAndAuthorManager postAndAuthorManager;
     private final AttachmentManager attachmentManager;
-    @Autowired
-    List<Post> db;
+    private final CommentManager commentManager;
 
-    public PostManagerInMemoryImp(PostAndAuthorManager postAndAuthorManager, AttachmentManager attachmentManager) {
+
+    public PostManagerInMemoryImp(@Autowired List<Post> db, PostAndAuthorManager postAndAuthorManager, AttachmentManager attachmentManager, CommentManager commentManager) {
         this.postAndAuthorManager = postAndAuthorManager;
         this.attachmentManager = attachmentManager;
+        this.commentManager = commentManager;
+        this.db = db;
     }
 
     @Override
@@ -49,5 +54,24 @@ public class PostManagerInMemoryImp implements PostManager {
     @Override
     public List<Post> getAllPosts() {
         return db;
+    }
+
+    @Override
+    public List<Post> getPost(String idPost) {
+        return db.stream().filter(post -> Objects.equals(post.getId(), idPost)).collect(Collectors.toList());
+    }
+
+    @Override
+    public Boolean deletePost(String idPost) {
+        if (getPost(idPost).size() == 1) {
+            setDb(db.stream().filter(post -> !Objects.equals(post.getId(), idPost)).collect(Collectors.toList()));
+            postAndAuthorManager.deletePostAndAuthorByIdPost(idPost);
+            attachmentManager.deleteAttachmentByIdPost(idPost);
+            commentManager.deleteCommentByIdPost(idPost);
+            return true;
+        } else {
+            return false;
+        }
+
     }
 }

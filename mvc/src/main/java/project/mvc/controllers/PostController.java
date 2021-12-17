@@ -50,7 +50,7 @@ public class PostController {
                 "attachment; filename=\"" + file.getFilename() + "\"").body(file);
     }
 
-    @GetMapping("/create/post")
+    @GetMapping("/post/create")
     public String form(Model model) {
         model.addAttribute("postForm", new PostForm());
         model.addAttribute("authors", authorManager.getAllAuthors());
@@ -58,7 +58,7 @@ public class PostController {
         return "postForm";
     }
 
-    @PostMapping("/create/post")
+    @PostMapping("/post/create")
     public String createPost(Model model, @Valid PostForm postForm, Errors errors) {
         if (errors.hasErrors()) {
             model.addAttribute("authors", authorManager.getAllAuthors());
@@ -71,6 +71,16 @@ public class PostController {
 
         }
         return "redirect:/";
+    }
+
+    @GetMapping("/post/delete/{idPost}")
+    public String delete(@PathVariable String idPost) {
+        if (postManager.deletePost(idPost)) {
+            return "redirect:/";
+        } else {
+            return "redirect:/noPage";
+
+        }
     }
 
     @ExceptionHandler(StorageFileNotFoundException.class)
