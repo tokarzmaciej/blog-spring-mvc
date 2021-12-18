@@ -6,6 +6,8 @@ import project.mvc.domain.Attachment;
 import project.mvc.domain.Author;
 
 import java.util.List;
+import java.util.Objects;
+import java.util.stream.Collectors;
 
 
 @Service
@@ -25,6 +27,12 @@ class AuthorsManagerInMemoryImpl implements AuthorManager {
     @Override
     public List<Author> getAllAuthors() {
         return db;
+    }
+
+    @Override
+    public Author getAuthor(String idAuthor) {
+        return db.stream().filter(author -> Objects.equals(author.getId(), idAuthor))
+                .collect(Collectors.toList()).get(0);
     }
 
 }

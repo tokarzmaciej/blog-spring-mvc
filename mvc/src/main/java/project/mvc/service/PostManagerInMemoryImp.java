@@ -3,10 +3,7 @@ package project.mvc.service;
 import lombok.Setter;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-import project.mvc.domain.Attachment;
-import project.mvc.domain.Post;
-import project.mvc.domain.PostAndAuthor;
-import project.mvc.domain.PostForm;
+import project.mvc.domain.*;
 
 import java.util.*;
 import java.util.stream.Collectors;
@@ -21,7 +18,8 @@ public class PostManagerInMemoryImp implements PostManager {
     private final CommentManager commentManager;
 
 
-    public PostManagerInMemoryImp(@Autowired List<Post> db, PostAndAuthorManager postAndAuthorManager, AttachmentManager attachmentManager, CommentManager commentManager) {
+    public PostManagerInMemoryImp(@Autowired List<Post> db, PostAndAuthorManager postAndAuthorManager,
+                                  AttachmentManager attachmentManager, CommentManager commentManager) {
         this.postAndAuthorManager = postAndAuthorManager;
         this.attachmentManager = attachmentManager;
         this.commentManager = commentManager;
@@ -82,7 +80,7 @@ public class PostManagerInMemoryImp implements PostManager {
         attachmentManager.setDb(
                 attachmentManager
                         .getAllAttachments()
-                        .stream().filter(attachemnt -> !Objects.equals(attachemnt.getId_post(), idPost))
+                        .stream().filter(attachment -> !Objects.equals(attachment.getId_post(), idPost))
                         .collect(Collectors.toList()));
 
         addAttachmentsForPost(postForm, idPost);
@@ -98,12 +96,54 @@ public class PostManagerInMemoryImp implements PostManager {
     }
 
     @Override
+    public List<PostView> getAllPostsView() {
+        return db.stream().map(post ->
+                        new PostView(post.getId(), post.getPost_content(), post.getTags(),
+                                attachmentManager.getAllAttachmentsForPost(post.getId()),
+                                commentManager.getAllCommentsForPost(post.getId()),
+                                postAndAuthorManager.getAllAuthorsForPost(post.getId())
+                        )).sorted((author1, author2) -> author2.getTags().
+                        compareTo(author1.getTags()))
+                .collect(Collectors.toList());
+    }
+
+    @Override
+    public List<PostView> getAllPostsViewSortByAuthorSize() {
+        return getAllPostsView().stream().sorted((author1, author2) -> {
+            if (author1.getAuthors().size() ==
+                    author2.getAuthors().size()) {
+                return 0;
+            } else if (author1.getAuthors().size() <
+                    author2.getAuthors().size()) {
+                return -1;
+            }
+            return 1;
+        }).collect(Collectors.toList());
+
+    }
+
+    @Override
+    public List<PostView> getAllPostsViewSortByCommentSize() {
+        return getAllPostsView().stream().sorted((author1, author2) -> {
+            if (author1.getComments().size() ==
+                    author2.getComments().size()) {
+                return 0;
+            } else if (author1.getComments().size() <
+                    author2.getComments().size()) {
+                return -1;
+            }
+            return 1;
+        }).collect(Collectors.toList());
+    }
+
+    @Override
     public Boolean deletePost(String idPost) {
         if (getPost(idPost).size() == 1) {
             setDb(db.stream().filter(post -> !Objects.equals(post.getId(), idPost)).collect(Collectors.toList()));
             postAndAuthorManager.deletePostAndAuthorByIdPost(idPost);
             attachmentManager.deleteAttachmentByIdPost(idPost);
             commentManager.deleteCommentByIdPost(idPost);
+
             return true;
         } else {
             return false;

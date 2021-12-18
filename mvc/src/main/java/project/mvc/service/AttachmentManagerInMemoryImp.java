@@ -36,5 +36,11 @@ class AttachmentManagerInMemoryImpl implements AttachmentManager {
                 .collect(Collectors.toList()));
     }
 
+    @Override
+    public List<Attachment> getAllAttachmentsForPost(String idPost) {
+        return db.stream().filter(attachment -> Objects.equals(attachment.getId_post(), idPost))
+                .collect(Collectors.toList());
+    }
+
 
 }

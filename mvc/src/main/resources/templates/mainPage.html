@@ -5,24 +5,51 @@
     <title>Blog</title>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.3/css/bulma.min.css">
     <link rel="canonical" href="https://bulma.io/documentation/components/navbar/">
+    <script defer src="https://use.fontawesome.com/releases/v5.3.1/js/all.js"></script>
+    <script>
+        function openTab(evt) {
+            var i, tablinks;
+            tablinks = document.getElementsByClassName("tab");
+            for (i = 0; i < 6; i++) {
+                tablinks[i].className = tablinks[i].className.replace(" is-active", "");
+            }
+            evt.currentTarget.className += " is-active";
+        }
+    </script>
+    <!--    I used:https://codepen.io/t7team/pen/ZowdRN-->
 </head>
 
 <body>
 <style>
     .card {
         width: 50%;
+    }
 
+    .tabs {
+        width: 35%;
+    }
+
+    .sorting {
+        display: flex;
+        justify-content: center;
     }
 
     @media (max-width: 600px) {
         .card {
             width: 80%;
         }
+
+        .tabs {
+            width: 70%;
+        }
     }
 </style>
 <div>
     <nav th:insert="navbar :: nav"></nav>
-    <div class="posts mt-6 mb-6"
+    <div class="sorting mt-6" th:insert="sorting :: sorting1"></div>
+    <div class="sorting mt-2" th:insert="sorting :: sorting2"></div>
+
+    <div class="posts mb-6"
          style="display:flex;justify-content:center; align-items: center; flex-direction: column-reverse">
         <div class="card has-background-white-bis mt-6" th:each="post : ${posts}">
             <div class="is-flex is-justify-content-right">
@@ -37,9 +64,20 @@
                     <br>
                     <br>
                 </div>
-                <div class="content">
+                <div class="content p-5">
                     <p th:text="${post.getPost_content()}"></p>
                 </div>
+                <div class="is-flex is-justify-content-right">
+                    <div class="mr-3 mb-3">
+                        <span class="icon is-small"><i class="fas fa-user" aria-hidden="true"></i></span>
+                        <span th:text="${post.getAuthors().size()}"></span>
+                    </div>
+                    <div class="mr-3 mb-3">
+                        <span class="icon is-small"><i class="fas fa-comments" aria-hidden="true"></i></span>
+                        <span th:text="${post.getComments().size()}"></span>
+                    </div>
+                </div>
+
                 <footer class="card-footer">
                     <a th:href="@{/post/edit/{idPost}(idPost=${post.getId()})}" class="card-footer-item">Edit</a>
                     <a href="#" class="card-footer-item">Comment</a>

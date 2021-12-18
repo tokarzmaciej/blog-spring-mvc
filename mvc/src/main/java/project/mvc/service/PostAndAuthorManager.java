@@ -1,5 +1,6 @@
 package project.mvc.service;
 
+import project.mvc.domain.Author;
 import project.mvc.domain.PostAndAuthor;
 
 import java.util.List;
@@ -14,5 +15,7 @@ public interface PostAndAuthorManager {
     void setDb(List<PostAndAuthor> db);
 
     List<String> getIdAuthorsForPost(String idPost);
+
+    List<Author> getAllAuthorsForPost(String idPost);
 
 }

@@ -10,4 +10,7 @@ public interface AuthorManager {
 
     List<Author> getAllAuthors();
 
+    Author getAuthor(String idAuthor);
+
+
 }

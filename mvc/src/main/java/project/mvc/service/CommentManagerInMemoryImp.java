@@ -35,4 +35,10 @@ public class CommentManagerInMemoryImp implements CommentManager {
         setDb(db.stream().filter(comment -> !Objects.equals(comment.getId_post(), idPost))
                 .collect(Collectors.toList()));
     }
+
+    @Override
+    public List<Comment> getAllCommentsForPost(String idPost) {
+        return db.stream().filter(comment -> Objects.equals(comment.getId_post(), idPost))
+                .collect(Collectors.toList());
+    }
 }

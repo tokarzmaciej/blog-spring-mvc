@@ -12,4 +12,6 @@ public interface CommentManager {
 
     void deleteCommentByIdPost(String idPost);
 
+    List<Comment> getAllCommentsForPost(String idPost);
+
 }

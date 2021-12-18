@@ -13,5 +13,7 @@ public interface AttachmentManager {
 
     void setDb(List<Attachment> db);
 
+    List<Attachment> getAllAttachmentsForPost(String idPost);
+
 }
 

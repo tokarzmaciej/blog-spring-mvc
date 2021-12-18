@@ -3,6 +3,7 @@ package project.mvc.service;
 import lombok.Setter;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import project.mvc.domain.Author;
 import project.mvc.domain.PostAndAuthor;
 
 import java.util.List;
@@ -14,8 +15,10 @@ public class PostAndAuthorManagerInMemoryImp implements PostAndAuthorManager {
 
     @Setter
     private List<PostAndAuthor> db;
+    private final AuthorManager authorManager;
 
-    public PostAndAuthorManagerInMemoryImp(@Autowired List<PostAndAuthor> db) {
+    public PostAndAuthorManagerInMemoryImp(AuthorManager authorManager, @Autowired List<PostAndAuthor> db) {
+        this.authorManager = authorManager;
         this.db = db;
     }
 
@@ -40,6 +43,13 @@ public class PostAndAuthorManagerInMemoryImp implements PostAndAuthorManager {
     public List<String> getIdAuthorsForPost(String idPost) {
         return db.stream().filter(row -> Objects.equals(row.getId_post(), idPost))
                 .map(PostAndAuthor::getId_author).collect(Collectors.toList());
+    }
+
+    @Override
+    public List<Author> getAllAuthorsForPost(String idPost) {
+        return db.stream().filter(row -> Objects.equals(row.getId_post(), idPost))
+                .map(author -> authorManager.getAuthor(author.getId_author()))
+                .collect(Collectors.toList());
     }
 
 

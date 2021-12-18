@@ -81,7 +81,7 @@
                             <option value=""></option>
                             <option th:each="author : ${authors}"
                                     th:value="${author.getId()}"
-                                    th:text="${author.getFirst_name()}"
+                                    th:text="${author.getFirst_name()}+' '+${author.getLast_name()}"
                                     th:selected="${selectedAuthors?.contains(author?.getId())}"
                             >
                             </option>
