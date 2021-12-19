@@ -8,24 +8,21 @@
 <body>
 
 <div class="tabs is-centered" th:fragment="sorting1">
-    <script>
-        console.log("status", status);
 
-    </script>
     <ul>
-        <li class="tab mr-6" th:classappend="${isSortAlpUp} ? 'is-active' : '' " onclick="openTab(event)">
+        <li class="tab mr-6" th:classappend="${sort.isSortAlpUp} ? 'is-active' : '' " onclick="openTab(event)">
             <a class="mr-6" th:href="@{/}">
                 <span class="icon is-small"><i class="fas fa-sort-alpha-down" aria-hidden="true"></i></span>
                 <span>A-Z</span>
             </a>
         </li>
-        <li class="tab mr-6" th:classappend="${isSortAutUp} ? 'is-active' : '' " onclick="openTab(event)">
+        <li class="tab mr-6" th:classappend="${sort.isSortAutUp} ? 'is-active' : '' " onclick="openTab(event)">
             <a class="mr-6" th:href="@{/sortByAuthorSizeUp}">
                 <span class="icon is-small"><i class="fas fa-user" aria-hidden="true"></i></span>
                 <span>Authors ↑</span>
             </a>
         </li>
-        <li class="tab" th:classappend="${isSortComUp} ? 'is-active' : '' " onclick="openTab(event)">
+        <li class="tab" th:classappend="${sort.isSortComUp} ? 'is-active' : '' " onclick="openTab(event)">
             <a th:href="@{/sortByCommentSizeUp}">
                 <span class="icon is-small"><i class="fas fa-comments" aria-hidden="true"></i></span>
                 <span>Comments ↑</span>
@@ -37,20 +34,20 @@
 
 <div class="tabs is-centered" th:fragment="sorting2">
     <ul>
-        <li class="tab mr-6" th:classappend="${isSortAlpDown} ? 'is-active' : '' " onclick="openTab(event)">
+        <li class="tab mr-6" th:classappend="${sort.isSortAlpDown} ? 'is-active' : '' " onclick="openTab(event)">
             <a class="mr-6" th:href="@{/sortByAlphabeticallyDown}">
                 <span class="icon is-small"><i class="fas fa-sort-alpha-up" aria-hidden="true"></i></span>
                 <span>Z-A</span>
 
             </a>
         </li>
-        <li class="tab mr-6" th:classappend="${isSortAutDown} ? 'is-active' : '' " onclick="openTab(event)">
+        <li class="tab mr-6" th:classappend="${sort.isSortAutDown} ? 'is-active' : '' " onclick="openTab(event)">
             <a class="mr-6" th:href="@{/sortByAuthorSizeDown}">
                 <span class="icon is-small"><i class="fas fa-user" aria-hidden="true"></i></span>
                 <span>Authors ↓</span>
             </a>
         </li>
-        <li class="tab" th:classappend="${isSortComDown} ? 'is-active' : '' " onclick="openTab(event)">
+        <li class="tab" th:classappend="${sort.isSortComDown} ? 'is-active' : '' " onclick="openTab(event)">
             <a th:href="@{/sortByCommentSizeDown}">
                 <span class="icon is-small"><i class="fas fa-comments" aria-hidden="true"></i></span>
                 <span>Comments ↓</span>

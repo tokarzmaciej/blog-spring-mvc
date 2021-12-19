@@ -23,4 +23,6 @@ public interface PostManager {
 
     List<PostView> getAllPostsViewSortByCommentSize();
 
+    List<PostView> getAllPostsForSearch(String value);
+
 }

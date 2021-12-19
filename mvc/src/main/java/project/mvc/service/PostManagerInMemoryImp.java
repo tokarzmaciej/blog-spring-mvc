@@ -60,7 +60,9 @@ public class PostManagerInMemoryImp implements PostManager {
 
     @Override
     public List<Post> getPost(String idPost) {
-        return db.stream().filter(post -> Objects.equals(post.getId(), idPost)).collect(Collectors.toList());
+        return db.stream()
+                .filter(post -> Objects.equals(post.getId(), idPost))
+                .collect(Collectors.toList());
     }
 
     @Override
@@ -97,43 +99,57 @@ public class PostManagerInMemoryImp implements PostManager {
 
     @Override
     public List<PostView> getAllPostsView() {
-        return db.stream().map(post ->
-                        new PostView(post.getId(), post.getPost_content(), post.getTags(),
-                                attachmentManager.getAllAttachmentsForPost(post.getId()),
-                                commentManager.getAllCommentsForPost(post.getId()),
-                                postAndAuthorManager.getAllAuthorsForPost(post.getId())
-                        )).sorted((author1, author2) -> author2.getTags().
+        return db
+                .stream()
+                .map(post -> new PostView(post.getId(), post.getPost_content(), post.getTags(),
+                        attachmentManager.getAllAttachmentsForPost(post.getId()),
+                        commentManager.getAllCommentsForPost(post.getId()),
+                        postAndAuthorManager.getAllAuthorsForPost(post.getId())
+                ))
+                .sorted((author1, author2) -> author2.getTags().
                         compareTo(author1.getTags()))
                 .collect(Collectors.toList());
     }
 
     @Override
     public List<PostView> getAllPostsViewSortByAuthorSize() {
-        return getAllPostsView().stream().sorted((author1, author2) -> {
-            if (author1.getAuthors().size() ==
-                    author2.getAuthors().size()) {
-                return 0;
-            } else if (author1.getAuthors().size() <
-                    author2.getAuthors().size()) {
-                return -1;
-            }
-            return 1;
-        }).collect(Collectors.toList());
+        return getAllPostsView()
+                .stream()
+                .sorted((author1, author2) -> {
+                    if (author1.getAuthors().size() ==
+                            author2.getAuthors().size()) {
+                        return 0;
+                    } else if (author1.getAuthors().size() <
+                            author2.getAuthors().size()) {
+                        return -1;
+                    }
+                    return 1;
+                }).collect(Collectors.toList());
 
     }
 
     @Override
     public List<PostView> getAllPostsViewSortByCommentSize() {
-        return getAllPostsView().stream().sorted((author1, author2) -> {
-            if (author1.getComments().size() ==
-                    author2.getComments().size()) {
-                return 0;
-            } else if (author1.getComments().size() <
-                    author2.getComments().size()) {
-                return -1;
-            }
-            return 1;
-        }).collect(Collectors.toList());
+        return getAllPostsView()
+                .stream()
+                .sorted((author1, author2) -> {
+                    if (author1.getComments().size() ==
+                            author2.getComments().size()) {
+                        return 0;
+                    } else if (author1.getComments().size() <
+                            author2.getComments().size()) {
+                        return -1;
+                    }
+                    return 1;
+                }).collect(Collectors.toList());
+    }
+
+    @Override
+    public List<PostView> getAllPostsForSearch(String value) {
+        return getAllPostsView()
+                .stream()
+                .filter(post -> post.getTags().contains(value) || post.getPost_content().contains(value))
+                .collect(Collectors.toList());
     }
 
     @Override

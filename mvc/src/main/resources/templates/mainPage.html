@@ -34,6 +34,11 @@
         justify-content: center;
     }
 
+    form {
+        width: 45%;
+    }
+
+
     @media (max-width: 600px) {
         .card {
             width: 80%;
@@ -46,7 +51,26 @@
 </style>
 <div>
     <nav th:insert="navbar :: nav"></nav>
-    <div class="sorting mt-6" th:insert="sorting :: sorting1"></div>
+    <div class="search  is-flex is-justify-content-center mt-6">
+        <form method="POST" th:action="@{/post/search/{value}(value=${search.getValue()})}" th:object="${search}"
+              enctype="multipart/form-data">
+            <div class="field has-addons is-flex is-justify-content-left">
+                <div class="control">
+
+                    <input class="input " type="text" placeholder="Find a post" th:field="*{value}"/>
+                    <p class="help is-danger is-size-6"
+                       th:if="${#fields.hasErrors('value')}"
+                       th:errors="*{value}">Content Error >
+                    </p>
+                </div>
+                <div class="control">
+                    <input class="button is-info" type="submit" name="action" value="Search"/>
+                </div>
+            </div>
+        </form>
+    </div>
+
+    <div class="sorting mt-5" th:insert="sorting :: sorting1"></div>
     <div class="sorting mt-2" th:insert="sorting :: sorting2"></div>
 
     <div class="posts mb-6"
