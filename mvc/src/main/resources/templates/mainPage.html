@@ -17,6 +17,7 @@
         }
     </script>
     <!--    I used:https://codepen.io/t7team/pen/ZowdRN-->
+
 </head>
 
 <body>
@@ -74,7 +75,7 @@
     <div class="sorting mt-2" th:insert="sorting :: sorting2"></div>
 
     <div class="posts mb-6"
-         style="display:flex;justify-content:center; align-items: center; flex-direction: column-reverse">
+         style="display:flex;justify-content:center; align-items: center; flex-direction: column">
         <div class="card has-background-white-bis mt-6" th:each="post : ${posts}">
             <div class="is-flex is-justify-content-right">
                 <a th:href="@{/post/delete/{idPost}(idPost=${post.getId()})}">
@@ -84,7 +85,8 @@
             </div>
             <div class="card-content">
                 <div class="media-content">
-                    <a class="is-size-4" href="#" th:text="${post.getTags()}"></a>
+                    <a class="is-size-4" th:href="@{/post/{idPost}(idPost=${post.getId()})}"
+                       th:text="${post.getTags()}"></a>
                     <br>
                     <br>
                 </div>
@@ -104,11 +106,13 @@
 
                 <footer class="card-footer">
                     <a th:href="@{/post/edit/{idPost}(idPost=${post.getId()})}" class="card-footer-item">Edit</a>
-                    <a href="#" class="card-footer-item">Comment</a>
+                    <a th:href="@{/comment/post/{idPost}(idPost=${post.getId()})}" class="card-footer-item">Comment</a>
                 </footer>
             </div>
         </div>
     </div>
+
+
 </div>
 </body>
 </html>

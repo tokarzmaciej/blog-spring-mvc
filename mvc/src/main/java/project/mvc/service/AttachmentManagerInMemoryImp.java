@@ -20,10 +20,9 @@ class AttachmentManagerInMemoryImpl implements AttachmentManager {
     }
 
     @Override
-    public Attachment addAttachment(Attachment attachment) {
+    public void addAttachment(Attachment attachment) {
         Attachment attachmentToAdd = new Attachment(attachment.getId_post(), attachment.getFilename());
         db.add(attachmentToAdd);
-        return attachmentToAdd;
     }
 
     @Override
@@ -38,7 +37,17 @@ class AttachmentManagerInMemoryImpl implements AttachmentManager {
 
     @Override
     public List<Attachment> getAllAttachmentsForPost(String idPost) {
-        return db.stream().filter(attachment -> Objects.equals(attachment.getId_post(), idPost))
+        return db.stream()
+                .filter(attachment -> Objects.equals(attachment.getId_post(), idPost)
+                        && !attachment.getFilename().startsWith("http://localhost:8080/files/image/"))
+                .collect(Collectors.toList());
+    }
+
+    @Override
+    public List<Attachment> getAllImagesForPost(String idPost) {
+        return db.stream()
+                .filter(attachment -> Objects.equals(attachment.getId_post(), idPost)
+                        && attachment.getFilename().startsWith("http://localhost:8080/files/image/"))
                 .collect(Collectors.toList());
     }
 

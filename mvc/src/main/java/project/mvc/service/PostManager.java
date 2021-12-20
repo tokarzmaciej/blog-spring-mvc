@@ -15,6 +15,8 @@ public interface PostManager {
 
     List<Post> getPost(String idPost);
 
+    List<PostView> getPostView(String idPost);
+
     Post editPost(String idPost, PostForm postForm);
 
     List<PostView> getAllPostsView();

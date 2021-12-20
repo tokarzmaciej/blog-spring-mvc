@@ -9,9 +9,11 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.Errors;
 import org.springframework.web.bind.annotation.*;
+import project.mvc.domain.Comment;
 import project.mvc.domain.Post;
 import project.mvc.domain.PostForm;
 import project.mvc.service.AuthorManager;
+import project.mvc.service.CommentManager;
 import project.mvc.service.PostAndAuthorManager;
 import project.mvc.service.PostManager;
 import project.mvc.storage.StorageFileNotFoundException;
@@ -126,6 +128,17 @@ public class PostController {
         }
         return "redirect:/";
     }
+
+    @GetMapping("/post/{idPost}")
+    public String postDetails(Model model, @PathVariable String idPost) {
+        model.addAttribute("post", postManager.getPostView(idPost).get(0));
+        model.addAttribute("modalOpen", "modal");
+        model.addAttribute("comment", new Comment());
+        model.addAttribute("buttonValue", "Comment");
+
+        return "postDetailView";
+    }
+
 
     @ExceptionHandler(StorageFileNotFoundException.class)
     public ResponseEntity<?> handleStorageFileNotFound() {

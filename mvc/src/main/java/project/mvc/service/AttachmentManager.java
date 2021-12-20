@@ -5,7 +5,7 @@ import project.mvc.domain.Attachment;
 import java.util.List;
 
 public interface AttachmentManager {
-    Attachment addAttachment(Attachment attachment);
+    void addAttachment(Attachment attachment);
 
     List<Attachment> getAllAttachments();
 
@@ -14,6 +14,9 @@ public interface AttachmentManager {
     void setDb(List<Attachment> db);
 
     List<Attachment> getAllAttachmentsForPost(String idPost);
+
+    List<Attachment> getAllImagesForPost(String idPost);
+
 
 }
 

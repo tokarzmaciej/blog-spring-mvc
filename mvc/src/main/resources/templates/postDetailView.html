@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Blog</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.3/css/bulma.min.css">
+    <link rel="canonical" href="https://bulma.io/documentation/components/navbar/">
+    <script defer src="https://use.fontawesome.com/releases/v5.3.1/js/all.js"></script>
+    <script>
+        function openModal(evt) {
+            evt.preventDefault();
+            const modal = document.querySelector('.modal');
+            const html = document.querySelector('html');
+            modal.classList.add("is-active");
+            html.classList.add('is-clipped');
+        }
+
+        function closeModal(evt) {
+            evt.preventDefault();
+            const modal = document.querySelector('.modal');
+            const html = document.querySelector('html');
+            modal.classList.remove("is-active");
+            html.classList.remove('is-clipped');
+        }
+    </script>
+</head>
+<body>
+<style>
+
+    .card {
+        width: 50%;
+    }
+
+    @media (max-width: 600px) {
+        .card {
+            width: 80%;
+        }
+
+    }
+</style>
+<nav th:insert="navbar :: nav"></nav>
+<div class="post  is-flex is-justify-content-center">
+    <div th:insert="modal :: modal"></div>
+    <div class="card has-background-white-bis mt-6 mb-6">
+        <div class="is-flex is-justify-content-right">
+            <a th:href="@{/post/delete/{idPost}(idPost=${post.getId()})}">
+                <button class="delete m-3 is-medium has-background-danger "></button>
+            </a>
+
+        </div>
+
+        <div class="card-content pt-1">
+            <div class="media-content pl-1 pb-6">
+                <a class="is-size-3 " href="#" th:text="${post.getTags()}"></a>
+            </div>
+
+            <figure class="image is-3by2" th:if="${post.getImages().size()>0}">
+                <img th:src="${post.getImages().get(0).getFilename()}" alt="Placeholder image">
+            </figure>
+
+            <div class="content p-5 is-size-5">
+                <p th:text="${post.getPost_content()}"></p>
+            </div>
+            <div th:if="${post.getAttachments().size()>0}">
+                <ul th:each="attachment : ${post.getAttachments()}">
+                    <a th:if="${attachment.getFilename().startsWith('http://')}"
+                       th:href="@{${attachment.getFilename()}}"
+                       th:text="${attachment.getFilename().startsWith('http://')} ?
+                        ${attachment.getFilename().substring(39,attachment.getFilename().length())}
+                        : ${attachment.getFilename()} "></a>
+                    <a th:if="${!attachment.getFilename().startsWith('http://')}"
+                       th:text="${attachment.getFilename()} "></a>
+                </ul>
+
+            </div>
+            <div class="is-flex is-justify-content-right">
+                <div class="mr-3 mb-3">
+                    <span class="icon is-small"><i class="fas fa-user" aria-hidden="true"></i></span>
+                    <span th:text="${post.getAuthors().size()}"></span>
+                </div>
+                <div class="mr-3 mb-3">
+                    <span class="icon is-small"><i class="fas fa-comments" aria-hidden="true"></i></span>
+                    <span th:text="${post.getComments().size()}"></span>
+                </div>
+            </div>
+
+            <footer class="card-footer">
+                <a th:href="@{/post/edit/{idPost}(idPost=${post.getId()})}" class="card-footer-item">Edit</a>
+                <a href="#" class="card-footer-item" onclick="openModal(event)">Comment</a>
+            </footer>
+        </div>
+    </div>
+</div>
+
+</body>
+</html>

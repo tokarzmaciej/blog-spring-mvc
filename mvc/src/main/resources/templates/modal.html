@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Blog</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.3/css/bulma.min.css">
+    <link rel="canonical" href="https://bulma.io/documentation/components/navbar/">
+</head>
+
+<body>
+<div th:class="${modalOpen}" th:fragment="modal">
+    <div class="modal-background"></div>
+    <div class="modal-card  has-background-grey">
+        <header class="modal-card-head">
+            <p class="modal-card-title">Comments</p>
+            <button class="delete" aria-label="close" onclick="closeModal(event)"></button>
+        </header>
+
+        <section class="modal-card-body">
+            <div class="comment  is-flex">
+                <form method="POST" th:action="@{{linkToEditPost}(linkToEditPost=${linkToEditPost})}"
+                      th:object="${comment}"
+                      enctype="multipart/form-data" style="width:100%">
+                    <div class="field">
+                        <label class="label has-text-link">Author</label>
+                        <div class="control">
+
+                            <input class="input " type="text" placeholder="Author" th:name="username" th:id="username"
+                                   th:value="${commentToEdit?.getUsername()}"/>
+                            <p class="help is-danger is-size-6"
+                               th:if="${#fields.hasErrors('username')}"
+                               th:errors="*{username}">Username Error >
+                            </p>
+                        </div>
+                        <label class="label has-text-link">Content</label>
+                        <div class="control">
+                            <textarea class="textarea" th:name="comment_content"
+                                      th:id="comment_content"
+                                      th:text="${commentToEdit?.getComment_content()}"
+                                      placeholder="Text input ..."></textarea>
+                            <p class="help is-danger is-size-6"
+                               th:if="${#fields.hasErrors('comment_content')}"
+                               th:errors="*{comment_content}">Content Error >
+
+                            </p>
+                        </div>
+                        <div class="control is-flex is-justify-content-right mt-2 mr-5 mb-4">
+                            <input class="button is-info " type="submit" name="action" th:value="${buttonValue}"/>
+                        </div>
+                    </div>
+                </form>
+            </div>
+
+
+            <div th:each="comment : ${post.getComments()}">
+                <div class="card has-background-white-ter mb-6 mt-2" style="width:100%">
+                    <div class="is-flex is-justify-content-right">
+                        <a th:href="@{/post/delete/comment/{idComment}(idComment=${comment.getId()})}">
+                            <button class="delete m-3 is-medium has-background-danger "></button>
+                        </a>
+
+                    </div>
+                    <div class="card-content p-1 pr-3 pl-3">
+                        <p class="title is-6" th:text="${comment.getComment_content()}">
+                        </p>
+                        <p class="subtitle has-text-link is-flex is-justify-content-right"
+                           th:text="${comment.getUsername()}">
+                        </p>
+                    </div>
+                    <footer class="card-footer is-size-4 is-flex is-justify-content-right mr-5 mt-1">
+                        <a class="button is-success mt-2 mb-2 "
+                           th:href="@{/post/comment/edit/{idComment}(idComment=${comment.getId()})}">Edit</a>
+                    </footer>
+                </div>
+            </div>
+        </section>
+
+    </div>
+</div>
+</body>
+</html>

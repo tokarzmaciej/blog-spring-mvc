@@ -66,6 +66,13 @@ public class PostManagerInMemoryImp implements PostManager {
     }
 
     @Override
+    public List<PostView> getPostView(String idPost) {
+        return getAllPostsView().stream()
+                .filter(post -> Objects.equals(post.getId(), idPost))
+                .collect(Collectors.toList());
+    }
+
+    @Override
     public Post editPost(String idPost, PostForm postForm) {
         Post postToEdit = new Post(idPost, postForm.getPost_content(), postForm.getTags());
         postAndAuthorManager.setDb(
@@ -103,11 +110,11 @@ public class PostManagerInMemoryImp implements PostManager {
                 .stream()
                 .map(post -> new PostView(post.getId(), post.getPost_content(), post.getTags(),
                         attachmentManager.getAllAttachmentsForPost(post.getId()),
+                        attachmentManager.getAllImagesForPost(post.getId()),
                         commentManager.getAllCommentsForPost(post.getId()),
                         postAndAuthorManager.getAllAuthorsForPost(post.getId())
                 ))
-                .sorted((author1, author2) -> author2.getTags().
-                        compareTo(author1.getTags()))
+                .sorted(Comparator.comparing(PostView::getTags))
                 .collect(Collectors.toList());
     }
 
@@ -115,12 +122,12 @@ public class PostManagerInMemoryImp implements PostManager {
     public List<PostView> getAllPostsViewSortByAuthorSize() {
         return getAllPostsView()
                 .stream()
-                .sorted((author1, author2) -> {
-                    if (author1.getAuthors().size() ==
-                            author2.getAuthors().size()) {
+                .sorted((post1, post2) -> {
+                    if (post2.getAuthors().size() ==
+                            post1.getAuthors().size()) {
                         return 0;
-                    } else if (author1.getAuthors().size() <
-                            author2.getAuthors().size()) {
+                    } else if (post2.getAuthors().size() <
+                            post1.getAuthors().size()) {
                         return -1;
                     }
                     return 1;
@@ -132,12 +139,12 @@ public class PostManagerInMemoryImp implements PostManager {
     public List<PostView> getAllPostsViewSortByCommentSize() {
         return getAllPostsView()
                 .stream()
-                .sorted((author1, author2) -> {
-                    if (author1.getComments().size() ==
-                            author2.getComments().size()) {
+                .sorted((post1, post2) -> {
+                    if (post2.getComments().size() ==
+                            post1.getComments().size()) {
                         return 0;
-                    } else if (author1.getComments().size() <
-                            author2.getComments().size()) {
+                    } else if (post2.getComments().size() <
+                            post1.getComments().size()) {
                         return -1;
                     }
                     return 1;
