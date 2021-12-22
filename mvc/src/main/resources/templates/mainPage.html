@@ -52,6 +52,32 @@
 </style>
 <div>
     <nav th:insert="navbar :: nav"></nav>
+    <nav class="level mt-5">
+        <div class="level-item has-text-centered">
+            <div>
+                <p class="heading">Posts</p>
+                <p class="title" th:text="${postsSize}"></p>
+            </div>
+        </div>
+        <div class="level-item has-text-centered">
+            <div>
+                <p class="heading">Authors</p>
+                <p class="title" th:text="${authorsSize}"></p>
+            </div>
+        </div>
+        <div class="level-item has-text-centered">
+            <div>
+                <p class="heading">Comments</p>
+                <p class="title" th:text="${commentsSize}">456K</p>
+            </div>
+        </div>
+        <div class="level-item has-text-centered">
+            <div>
+                <p class="heading">Attachments</p>
+                <p class="title" th:text="${attachmentsSize}">789</p>
+            </div>
+        </div>
+    </nav>
     <div class="search  is-flex is-justify-content-center mt-6">
         <form method="POST" th:action="@{/post/search}" th:object="${search}"
               enctype="multipart/form-data">

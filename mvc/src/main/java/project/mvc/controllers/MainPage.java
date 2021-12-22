@@ -8,6 +8,9 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import project.mvc.domain.*;
+import project.mvc.service.AttachmentManager;
+import project.mvc.service.AuthorManager;
+import project.mvc.service.CommentManager;
 import project.mvc.service.PostManager;
 
 import javax.validation.Valid;
@@ -20,9 +23,15 @@ import java.util.List;
 public class MainPage {
 
     private final PostManager postManager;
+    private final AuthorManager authorManager;
+    private final CommentManager commentManager;
+    private final AttachmentManager attachmentManager;
 
-    public MainPage(PostManager postManager) {
+    public MainPage(PostManager postManager, AuthorManager authorManager, CommentManager commentManager, AttachmentManager attachmentManager) {
         this.postManager = postManager;
+        this.authorManager = authorManager;
+        this.commentManager = commentManager;
+        this.attachmentManager = attachmentManager;
     }
 
 
@@ -33,6 +42,11 @@ public class MainPage {
         model.addAttribute("sort",
                 new Sort(true, false, false, false, false, false)
         );
+        model.addAttribute("postsSize", postManager.getAllPosts().size());
+        model.addAttribute("authorsSize", authorManager.getAllAuthors().size());
+        model.addAttribute("commentsSize", commentManager.getAllComments().size());
+        model.addAttribute("attachmentsSize", attachmentManager.getAllAttachments().size());
+
 
         return "mainPage";
     }
@@ -46,6 +60,11 @@ public class MainPage {
         model.addAttribute("sort",
                 new Sort(false, true, false, false, false, false)
         );
+        model.addAttribute("postsSize", postManager.getAllPosts().size());
+        model.addAttribute("authorsSize", authorManager.getAllAuthors().size());
+        model.addAttribute("commentsSize", commentManager.getAllComments().size());
+        model.addAttribute("attachmentsSize", attachmentManager.getAllAttachments().size());
+
         return "mainPage";
     }
 
@@ -56,6 +75,11 @@ public class MainPage {
         model.addAttribute("sort",
                 new Sort(false, false, true, false, false, false)
         );
+        model.addAttribute("postsSize", postManager.getAllPosts().size());
+        model.addAttribute("authorsSize", authorManager.getAllAuthors().size());
+        model.addAttribute("commentsSize", commentManager.getAllComments().size());
+        model.addAttribute("attachmentsSize", attachmentManager.getAllAttachments().size());
+
         return "mainPage";
     }
 
@@ -68,6 +92,10 @@ public class MainPage {
         model.addAttribute("sort",
                 new Sort(false, false, false, true, false, false)
         );
+        model.addAttribute("postsSize", postManager.getAllPosts().size());
+        model.addAttribute("authorsSize", authorManager.getAllAuthors().size());
+        model.addAttribute("commentsSize", commentManager.getAllComments().size());
+        model.addAttribute("attachmentsSize", attachmentManager.getAllAttachments().size());
 
         return "mainPage";
     }
@@ -79,6 +107,11 @@ public class MainPage {
         model.addAttribute("sort",
                 new Sort(false, false, false, false, true, false)
         );
+        model.addAttribute("postsSize", postManager.getAllPosts().size());
+        model.addAttribute("authorsSize", authorManager.getAllAuthors().size());
+        model.addAttribute("commentsSize", commentManager.getAllComments().size());
+        model.addAttribute("attachmentsSize", attachmentManager.getAllAttachments().size());
+
         return "mainPage";
     }
 
@@ -91,6 +124,11 @@ public class MainPage {
         model.addAttribute("sort",
                 new Sort(false, false, false, false, false, true)
         );
+        model.addAttribute("postsSize", postManager.getAllPosts().size());
+        model.addAttribute("authorsSize", authorManager.getAllAuthors().size());
+        model.addAttribute("commentsSize", commentManager.getAllComments().size());
+        model.addAttribute("attachmentsSize", attachmentManager.getAllAttachments().size());
+
         return "mainPage";
     }
 
@@ -101,6 +139,10 @@ public class MainPage {
         model.addAttribute("sort",
                 new Sort(true, true, false, false, false, false)
         );
+        model.addAttribute("postsSize", postManager.getAllPosts().size());
+        model.addAttribute("authorsSize", authorManager.getAllAuthors().size());
+        model.addAttribute("commentsSize", commentManager.getAllComments().size());
+        model.addAttribute("attachmentsSize", attachmentManager.getAllAttachments().size());
 
         return "mainPage";
     }
