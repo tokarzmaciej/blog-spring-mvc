@@ -75,4 +75,11 @@ public class CommentManagerInMemoryImp implements CommentManager {
         }).collect(Collectors.toList()));
         return getComment(idComment).get(0);
     }
+
+    @Override
+    public List<Comment> getCommentsForUsername(String username) {
+        return db.stream()
+                .filter(comment -> Objects.equals(comment.getUsername(), username))
+                .collect(Collectors.toList());
+    }
 }

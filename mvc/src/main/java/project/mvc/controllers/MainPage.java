@@ -106,8 +106,11 @@ public class MainPage {
     }
 
     @PostMapping("/post/search")
-    public String createPost(@Valid Search search, Errors errors) {
+    public String searchPost(Model model, @Valid Search search, Errors errors) {
         if (errors.hasErrors()) {
+            model.addAttribute("sort",
+                    new Sort(true, true, false, false, false, false)
+            );
             return "mainPage";
         }
         return "redirect:/post/search/" + search.getValue();

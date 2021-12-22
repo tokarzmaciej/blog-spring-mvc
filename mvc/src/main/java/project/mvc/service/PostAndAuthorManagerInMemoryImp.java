@@ -18,8 +18,8 @@ public class PostAndAuthorManagerInMemoryImp implements PostAndAuthorManager {
     private final AuthorManager authorManager;
 
     public PostAndAuthorManagerInMemoryImp(AuthorManager authorManager, @Autowired List<PostAndAuthor> db) {
-        this.authorManager = authorManager;
         this.db = db;
+        this.authorManager = authorManager;
     }
 
     @Override
@@ -44,6 +44,7 @@ public class PostAndAuthorManagerInMemoryImp implements PostAndAuthorManager {
         return db.stream().filter(row -> Objects.equals(row.getId_post(), idPost))
                 .map(PostAndAuthor::getId_author).collect(Collectors.toList());
     }
+
 
     @Override
     public List<Author> getAllAuthorsForPost(String idPost) {

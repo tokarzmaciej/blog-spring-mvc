@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Blog</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.3/css/bulma.min.css">
+    <link rel="canonical" href="https://bulma.io/documentation/components/navbar/">
+    <script defer src="https://use.fontawesome.com/releases/v5.3.1/js/all.js"></script>
+</head>
+<body>
+<nav th:insert="navbar :: nav"></nav>
+<div>
+    <p class="title mt-6 mb-6 is-flex is-justify-content-center"
+       th:if="${author.getComments().size()==0}">
+        User has no comments
+    </p>
+    <p class="title mt-6 mb-6 is-flex is-justify-content-center"
+       th:if="${author.getComments().size()>0}"
+       th:text="'Posts for ' + ${author.getComments().get(0).getUsername()}"></p>
+    <div class="is-flex is-justify-content-center is-flex-direction-column is-align-items-center">
+        <div class="card has-background-white-ter mb-6 mt-6"
+             th:if="${author.getComments().size()>0}"
+             th:each="comment : ${author.getComments()}"
+             style="width:50%">
+            <div class="is-flex is-justify-content-left">
+                <strong class="p-3">
+                    <a th:href="@{/post/{idPost}(idPost=${comment.getId_post()})}"
+                       class="has-text-link is-size-5">
+                        Post
+                    </a>
+                </strong>
+            </div>
+            <div class="card-content p-1 pr-3 pl-3">
+                <p class="title is-6" th:text="${comment.getComment_content()}">
+                </p>
+                <p class="subtitle has-text-link is-flex is-justify-content-right p-1"
+                   th:text="${comment.getUsername()}">
+                </p>
+            </div>
+        </div>
+    </div>
+</div>
+</body>
+</html>

@@ -53,7 +53,7 @@
 <div>
     <nav th:insert="navbar :: nav"></nav>
     <div class="search  is-flex is-justify-content-center mt-6">
-        <form method="POST" th:action="@{/post/search/{value}(value=${search.getValue()})}" th:object="${search}"
+        <form method="POST" th:action="@{/post/search}" th:object="${search}"
               enctype="multipart/form-data">
             <div class="field has-addons is-flex is-justify-content-left">
                 <div class="control">

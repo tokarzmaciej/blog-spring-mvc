@@ -22,5 +22,6 @@ public interface CommentManager {
 
     Comment editComment(String idComment, Comment comment);
 
+    List<Comment> getCommentsForUsername(String username);
 
 }
