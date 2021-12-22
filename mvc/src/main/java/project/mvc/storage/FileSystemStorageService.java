@@ -21,14 +21,14 @@ public class FileSystemStorageService implements StorageService {
 
     private final Path rootLocationImage;
     private final Path rootLocationAttachment;
+    private final Path rootLocationExport;
 
     @Autowired
     public FileSystemStorageService(StorageProperties properties) {
         this.rootLocationImage = Paths.get(properties.getLocation() + "/image");
         this.rootLocationAttachment = Paths.get(properties.getLocation() + "/attachment");
-
+        this.rootLocationExport = Paths.get(properties.getLocation() + "/export");
     }
-
 
     public void storeImage(MultipartFile file) {
         try {
@@ -83,6 +83,11 @@ public class FileSystemStorageService implements StorageService {
     }
 
     @Override
+    public Path loadExportFile(String filename) {
+        return rootLocationExport.resolve(filename);
+    }
+
+    @Override
     public Resource loadAsResourceImage(String filename) {
         try {
             Path file = loadImage(filename);
@@ -117,10 +122,29 @@ public class FileSystemStorageService implements StorageService {
     }
 
     @Override
+    public Resource loadAsResourceExport(String filename) {
+        try {
+            Path file = loadExportFile(filename);
+            Resource resource = new UrlResource(file.toUri());
+            if (resource.exists() || resource.isReadable()) {
+                return resource;
+            } else {
+                throw new StorageFileNotFoundException(
+                        "Could not read file: " + filename);
+
+            }
+        } catch (MalformedURLException e) {
+            throw new StorageFileNotFoundException("Could not read file: " + filename, e);
+        }
+    }
+
+    @Override
     public void deleteAll() {
 
         FileSystemUtils.deleteRecursively(rootLocationImage.toFile());
         FileSystemUtils.deleteRecursively(rootLocationAttachment.toFile());
+        FileSystemUtils.deleteRecursively(rootLocationExport.toFile());
+
     }
 
     @Override

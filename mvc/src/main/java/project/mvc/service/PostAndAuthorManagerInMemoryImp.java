@@ -1,11 +1,15 @@
 package project.mvc.service;
 
+import com.opencsv.CSVWriter;
 import lombok.Setter;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import project.mvc.domain.Author;
 import project.mvc.domain.PostAndAuthor;
 
+import java.io.File;
+import java.io.FileWriter;
+import java.io.IOException;
 import java.util.List;
 import java.util.Objects;
 import java.util.stream.Collectors;
@@ -51,6 +55,33 @@ public class PostAndAuthorManagerInMemoryImp implements PostAndAuthorManager {
         return db.stream().filter(row -> Objects.equals(row.getId_post(), idPost))
                 .map(author -> authorManager.getAuthor(author.getId_author()))
                 .collect(Collectors.toList());
+    }
+
+    @Override
+    public void writeToCsv() {
+        File folder = new File("./upload-dir/export");
+        if (!folder.exists()) {
+            folder.mkdirs();
+        }
+        String filePath = "./upload-dir/export/posts_authors.csv";
+        File file = new File(filePath);
+        try {
+            FileWriter outputFile = new FileWriter(file);
+
+            CSVWriter writer = new CSVWriter(outputFile);
+
+            String[] header = {"id_post", "id_author"};
+            writer.writeNext(header);
+
+            db.forEach(row -> {
+                String[] data = {row.getId_post(), row.getId_author()};
+                writer.writeNext(data);
+            });
+
+            writer.close();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
     }
 
 

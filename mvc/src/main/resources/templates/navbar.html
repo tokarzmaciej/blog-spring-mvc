@@ -7,7 +7,7 @@
 
 <body>
 
-<nav class="navbar is-dark" th:fragment="navbar">
+<nav class="navbar is-dark" th:fragment="navbar" style="width: 100%;">
     <div class="navbar-brand">
         <a class="navbar-item" href="/">
             <p class="title has-text-white ml-5">BLOG</p>
@@ -26,6 +26,9 @@
 
             <a class="navbar-item" th:href="@{/authors}">
                 Authors
+            </a>
+            <a class="navbar-item" th:href="@{/exports}">
+                Exports
             </a>
         </div>
         <div class="navbar-end">

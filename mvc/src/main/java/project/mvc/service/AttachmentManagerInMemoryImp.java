@@ -1,9 +1,13 @@
 package project.mvc.service;
 
+import com.opencsv.CSVWriter;
 import lombok.Setter;
 import org.springframework.stereotype.Service;
 import project.mvc.domain.Attachment;
 
+import java.io.File;
+import java.io.FileWriter;
+import java.io.IOException;
 import java.util.List;
 import java.util.Objects;
 import java.util.stream.Collectors;
@@ -51,5 +55,31 @@ class AttachmentManagerInMemoryImpl implements AttachmentManager {
                 .collect(Collectors.toList());
     }
 
+    @Override
+    public void writeToCsv() {
+        File folder = new File("./upload-dir/export");
+        if (!folder.exists()) {
+            folder.mkdirs();
+        }
+        String filePath = "./upload-dir/export/attachments.csv";
+        File file = new File(filePath);
+        try {
+            FileWriter outputFile = new FileWriter(file);
+
+            CSVWriter writer = new CSVWriter(outputFile);
+
+            String[] header = {"id_post", "filename"};
+            writer.writeNext(header);
+
+            db.forEach(attachment -> {
+                String[] data = {attachment.getId_post(), attachment.getFilename()};
+                writer.writeNext(data);
+            });
+
+            writer.close();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
 
 }

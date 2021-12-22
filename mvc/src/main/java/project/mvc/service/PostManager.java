@@ -27,4 +27,6 @@ public interface PostManager {
 
     List<PostView> getAllPostsForSearch(String value);
 
+    void writeToCsv();
+
 }

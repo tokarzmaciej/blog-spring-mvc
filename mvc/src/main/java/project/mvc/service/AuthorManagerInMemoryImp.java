@@ -1,5 +1,6 @@
 package project.mvc.service;
 
+import com.opencsv.CSVWriter;
 import lombok.Setter;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -8,6 +9,9 @@ import project.mvc.domain.AuthorView;
 import project.mvc.domain.Post;
 import project.mvc.domain.PostAndAuthor;
 
+import java.io.File;
+import java.io.FileWriter;
+import java.io.IOException;
 import java.util.Collections;
 import java.util.List;
 import java.util.Objects;
@@ -97,4 +101,30 @@ class AuthorsManagerInMemoryImpl implements AuthorManager {
                 .collect(Collectors.toList());
     }
 
+    @Override
+    public void writeToCsv() {
+        File folder = new File("./upload-dir/export");
+        if (!folder.exists()) {
+            folder.mkdirs();
+        }
+        String filePath = "./upload-dir/export/authors.csv";
+        File file = new File(filePath);
+        try {
+            FileWriter outputFile = new FileWriter(file);
+
+            CSVWriter writer = new CSVWriter(outputFile);
+
+            String[] header = {"id", "first_name", "last_name", "username"};
+            writer.writeNext(header);
+
+            db.forEach(author -> {
+                String[] data = {author.getId(), author.getFirst_name(), author.getLast_name(), author.getUsername()};
+                writer.writeNext(data);
+            });
+
+            writer.close();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
 }

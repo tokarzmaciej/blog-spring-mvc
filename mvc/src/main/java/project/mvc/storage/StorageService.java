@@ -9,7 +9,6 @@ public interface StorageService {
 
     void init();
 
-
     void storeImage(MultipartFile file);
 
     void storeAttachment(MultipartFile file);
@@ -21,6 +20,10 @@ public interface StorageService {
     Resource loadAsResourceImage(String filename);
 
     Resource loadAsResourceAttachment(String filename);
+
+    Path loadExportFile(String filename);
+
+    Resource loadAsResourceExport(String filename);
 
     void deleteAll();
 

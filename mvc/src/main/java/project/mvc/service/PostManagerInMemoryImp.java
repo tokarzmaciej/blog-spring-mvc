@@ -1,10 +1,14 @@
 package project.mvc.service;
 
+import com.opencsv.CSVWriter;
 import lombok.Setter;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import project.mvc.domain.*;
 
+import java.io.File;
+import java.io.FileWriter;
+import java.io.IOException;
 import java.util.*;
 import java.util.stream.Collectors;
 
@@ -173,4 +177,32 @@ public class PostManagerInMemoryImp implements PostManager {
         }
 
     }
+
+    @Override
+    public void writeToCsv() {
+        File folder = new File("./upload-dir/export");
+        if (!folder.exists()) {
+            folder.mkdirs();
+        }
+        String filePath = "./upload-dir/export/posts.csv";
+        File file = new File(filePath);
+        try {
+            FileWriter outputFile = new FileWriter(file);
+
+            CSVWriter writer = new CSVWriter(outputFile);
+
+            String[] header = {"id", "post_content", "tags"};
+            writer.writeNext(header);
+
+            db.forEach(post -> {
+                String[] data = {post.getId(), post.getPost_content(), post.getTags()};
+                writer.writeNext(data);
+            });
+
+            writer.close();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+
 }

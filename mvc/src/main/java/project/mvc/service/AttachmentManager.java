@@ -17,6 +17,7 @@ public interface AttachmentManager {
 
     List<Attachment> getAllImagesForPost(String idPost);
 
+    void writeToCsv();
 
 }
 

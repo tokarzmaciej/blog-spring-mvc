@@ -18,4 +18,5 @@ public interface PostAndAuthorManager {
 
     List<Author> getAllAuthorsForPost(String idPost);
 
+    void writeToCsv();
 }

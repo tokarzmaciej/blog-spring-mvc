@@ -1,10 +1,14 @@
 package project.mvc.service;
 
+import com.opencsv.CSVWriter;
 import lombok.Setter;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import project.mvc.domain.Comment;
 
+import java.io.File;
+import java.io.FileWriter;
+import java.io.IOException;
 import java.util.List;
 import java.util.Objects;
 import java.util.UUID;
@@ -81,5 +85,32 @@ public class CommentManagerInMemoryImp implements CommentManager {
         return db.stream()
                 .filter(comment -> Objects.equals(comment.getUsername(), username))
                 .collect(Collectors.toList());
+    }
+
+    @Override
+    public void writeToCsv() {
+        File folder = new File("./upload-dir/export");
+        if (!folder.exists()) {
+            folder.mkdirs();
+        }
+        String filePath = "./upload-dir/export/comments.csv";
+        File file = new File(filePath);
+        try {
+            FileWriter outputFile = new FileWriter(file);
+
+            CSVWriter writer = new CSVWriter(outputFile);
+
+            String[] header = {"id", "username", "id_post", "comment_content"};
+            writer.writeNext(header);
+
+            db.forEach(comment -> {
+                String[] data = {comment.getId(), comment.getUsername(), comment.getId_post(), comment.getComment_content()};
+                writer.writeNext(data);
+            });
+
+            writer.close();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
     }
 }
