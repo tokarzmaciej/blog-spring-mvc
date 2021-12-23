@@ -1,0 +1,259 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Blog</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.3/css/bulma.min.css">
+    <link rel="canonical" href="https://bulma.io/documentation/components/navbar/">
+    <script src="https://code.iconify.design/2/2.1.0/iconify.min.js"></script>
+    <script defer src="https://use.fontawesome.com/releases/v5.3.1/js/all.js"></script>
+</head>
+<body>
+<nav th:insert="navbar :: nav"></nav>
+<p class="title is-flex is-align-content-center is-justify-content-center is-size-2 is-flex-direction-row mt-6">
+    Upload</p>
+<div class="is-flex  is-justify-content-center  mt-2 ">
+    <div class="columns is-mobile is-multiline 	is-justify-content-center mt-6" style="width: 100%;height: 100%">
+
+        <div class="column is-narrow mt-6">
+            <strong>
+                <a class="bd-notification has-text-dark is-flex is-justify-content-center is-flex-wrap-wrap is-size-5"
+                >
+                    Posts
+                </a>
+            </strong>
+
+            <form method="POST" enctype="multipart/form-data" th:action="@{/import/posts}" th:object="${importPosts}">
+
+                <div id="postsInput"
+                     class="file has-name is-size-7-mobile is-medium  is-info is-flex is-flex-direction-column ">
+                      <span class="file-name is-flex is-justify-content-center " style=" border-width: 0">
+                                    No file uploaded
+                    </span>
+                    <label class="file-label" style="width: 100%">
+                            <span class="file-cta " style="border-radius: 4px 4px 4px 4px; width: 100%">
+                                 <span class="file-label">
+                                    Choose a csv file
+                                  </span>
+                                  <span class="file-icon pl-5">
+                                    <i class="fas fa-upload"></i>
+                                  </span>
+                            </span>
+                    </label>
+                    <input class="file-input" type="file" name="fileCsv" th:field="*{fileCsv}" style="width: 100%">
+                    <p class="help is-danger is-size-5 mt-1 mb-1"
+                       th:if="${#fields.hasErrors('fileCsv')}"
+                       th:errors="*{fileCsv}">Image file Error
+                    </p>
+                </div>
+                <div class="field" style="display:flex;justify-content:center;">
+                    <input class="button is-success mt-1 is-flex is-justify-content-center"
+                           type="submit" name="action" value="Upload"
+                           style="width: 100%"
+                    />
+                </div>
+            </form>
+        </div>
+        <div class="column is-narrow mt-6">
+            <strong>
+                <a class="bd-notification has-text-dark is-flex is-justify-content-center is-flex-wrap-wrap is-size-5"
+                >
+                    Authors
+                </a>
+            </strong>
+
+            <form method="POST" enctype="multipart/form-data" th:action="@{/import/authors}"
+                  th:object="${importAuthors}">
+
+                <div id="authorsInput"
+                     class="file has-name is-size-7-mobile is-medium  is-info is-flex is-flex-direction-column ">
+                      <span class="file-name is-flex is-justify-content-center " style=" border-width: 0">
+                                    No file uploaded
+                    </span>
+                    <label class="file-label" style="width: 100%">
+                            <span class="file-cta " style="border-radius: 4px 4px 4px 4px; width: 100%">
+                                 <span class="file-label">
+                                    Choose a csv file
+                                  </span>
+                                  <span class="file-icon pl-5">
+                                    <i class="fas fa-upload"></i>
+                                  </span>
+                            </span>
+                    </label>
+                    <input class="file-input" type="file" name="fileCsv" th:field="*{fileCsv}" style="width: 100%">
+                    <p class="help is-danger is-size-5 mt-1 mb-1"
+                       th:if="${#fields.hasErrors('fileCsv')}"
+                       th:errors="*{fileCsv}">Image file Error
+                    </p>
+                </div>
+                <div class="field" style="display:flex;justify-content:center;">
+                    <input class="button is-success mt-1 is-flex is-justify-content-center"
+                           type="submit" name="action" value="Upload"
+                           style="width: 100%"
+                    />
+                </div>
+            </form>
+        </div>
+        <div class="column is-narrow mt-6">
+            <strong>
+                <a class="bd-notification has-text-dark is-flex is-justify-content-center is-flex-wrap-wrap is-size-5"
+                >
+                    Comments
+                </a>
+            </strong>
+
+            <form method="POST" enctype="multipart/form-data" th:action="@{/import/comments}"
+                  th:object="${importComments}">
+
+                <div id="commentsInput"
+                     class="file has-name is-size-7-mobile is-medium  is-info is-flex is-flex-direction-column ">
+                      <span class="file-name is-flex is-justify-content-center " style=" border-width: 0">
+                                    No file uploaded
+                    </span>
+                    <label class="file-label" style="width: 100%">
+                            <span class="file-cta " style="border-radius: 4px 4px 4px 4px; width: 100%">
+                                 <span class="file-label">
+                                    Choose a csv file
+                                  </span>
+                                  <span class="file-icon pl-5">
+                                    <i class="fas fa-upload"></i>
+                                  </span>
+                            </span>
+                    </label>
+                    <input class="file-input" type="file" name="fileCsv" th:field="*{fileCsv}" style="width: 100%">
+                    <p class="help is-danger is-size-5 mt-1 mb-1"
+                       th:if="${#fields.hasErrors('fileCsv')}"
+                       th:errors="*{fileCsv}">Image file Error
+                    </p>
+                </div>
+                <div class="field" style="display:flex;justify-content:center;">
+                    <input class="button is-success mt-1 is-flex is-justify-content-center"
+                           type="submit" name="action" value="Upload"
+                           style="width: 100%"
+                    />
+                </div>
+            </form>
+        </div>
+        <div class="column is-narrow mt-6">
+            <strong>
+                <a class="bd-notification has-text-dark is-flex is-justify-content-center is-flex-wrap-wrap is-size-5"
+                >
+                    Attachments
+                </a>
+            </strong>
+
+            <form method="POST" enctype="multipart/form-data" th:action="@{/import/attachments}"
+                  th:object="${importAttachments}">
+
+                <div id="attachmentsInput"
+                     class="file has-name is-size-7-mobile is-medium  is-info is-flex is-flex-direction-column ">
+                      <span class="file-name is-flex is-justify-content-center " style=" border-width: 0">
+                                    No file uploaded
+                    </span>
+                    <label class="file-label" style="width: 100%">
+                            <span class="file-cta " style="border-radius: 4px 4px 4px 4px; width: 100%">
+                                 <span class="file-label">
+                                    Choose a csv file
+                                  </span>
+                                  <span class="file-icon pl-5">
+                                    <i class="fas fa-upload"></i>
+                                  </span>
+                            </span>
+                    </label>
+                    <input class="file-input" type="file" name="fileCsv" th:field="*{fileCsv}" style="width: 100%">
+                    <p class="help is-danger is-size-5 mt-1 mb-1"
+                       th:if="${#fields.hasErrors('fileCsv')}"
+                       th:errors="*{fileCsv}">Image file Error
+                    </p>
+                </div>
+                <div class="field" style="display:flex;justify-content:center;">
+                    <input class="button is-success mt-1 is-flex is-justify-content-center"
+                           type="submit" name="action" value="Upload"
+                           style="width: 100%"
+                    />
+                </div>
+            </form>
+        </div>
+        <div class="column is-narrow mt-6">
+            <strong>
+                <a class="bd-notification has-text-dark is-flex is-justify-content-center is-flex-wrap-wrap is-size-5"
+                >
+                    Post and Author
+                </a>
+            </strong>
+
+            <form method="POST" enctype="multipart/form-data" th:action="@{/import/postAndAuthor}"
+                  th:object="${importPostAndAuthor}">
+
+                <div id="postAndAuthorInput"
+                     class="file has-name is-size-7-mobile is-medium  is-info is-flex is-flex-direction-column ">
+                      <span class="file-name is-flex is-justify-content-center " style=" border-width: 0">
+                                    No file uploaded
+                    </span>
+                    <label class="file-label" style="width: 100%">
+                            <span class="file-cta " style="border-radius: 4px 4px 4px 4px; width: 100%">
+                                 <span class="file-label">
+                                    Choose a csv file
+                                  </span>
+                                  <span class="file-icon pl-5">
+                                    <i class="fas fa-upload"></i>
+                                  </span>
+                            </span>
+                    </label>
+                    <input class="file-input" type="file" name="fileCsv" th:field="*{fileCsv}" style="width: 100%">
+                    <p class="help is-danger is-size-5 mt-1 mb-1"
+                       th:if="${#fields.hasErrors('fileCsv')}"
+                       th:errors="*{fileCsv}">Image file Error
+                    </p>
+                </div>
+                <div class="field" style="display:flex;justify-content:center;">
+                    <input class="button is-success mt-1 is-flex is-justify-content-center"
+                           type="submit" name="action" value="Upload"
+                           style="width: 100%"
+                    />
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+<script>
+    const posts = document.querySelector('#postsInput input[type=file]');
+    posts.onchange = () => {
+        if (posts.files.length > 0) {
+            const fileName = document.querySelector('#postsInput .file-name');
+            fileName.textContent = posts.files[0].name;
+        }
+    }
+    const authors = document.querySelector('#authorsInput input[type=file]');
+    authors.onchange = () => {
+        if (authors.files.length > 0) {
+            const fileName = document.querySelector('#authorsInput .file-name');
+            fileName.textContent = authors.files[0].name;
+        }
+    }
+    const comments = document.querySelector('#commentsInput input[type=file]');
+    comments.onchange = () => {
+        if (comments.files.length > 0) {
+            const fileName = document.querySelector('#commentsInput .file-name');
+            fileName.textContent = comments.files[0].name;
+        }
+    }
+    const attachments = document.querySelector('#attachmentsInput input[type=file]');
+    attachments.onchange = () => {
+        if (attachments.files.length > 0) {
+            const fileName = document.querySelector('#attachmentsInput .file-name');
+            fileName.textContent = attachments.files[0].name;
+        }
+    }
+    const postAndAuthor = document.querySelector('#postAndAuthorInput input[type=file]');
+    postAndAuthor.onchange = () => {
+        if (postAndAuthor.files.length > 0) {
+            const fileName = document.querySelector('#postAndAuthorInput .file-name');
+            fileName.textContent = postAndAuthor.files[0].name;
+        }
+    }
+
+</script>
+</body>
+</html>

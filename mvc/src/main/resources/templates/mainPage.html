@@ -81,17 +81,17 @@
     <div class="search  is-flex is-justify-content-center mt-6">
         <form method="POST" th:action="@{/post/search}" th:object="${search}"
               enctype="multipart/form-data">
-            <div class="field has-addons is-flex is-justify-content-left">
-                <div class="control">
+            <div class="field has-addons is-flex is-justify-content-center">
+                <div class="control" style="width:60%">
 
-                    <input class="input " type="text" placeholder="Find a post" th:field="*{value}"/>
+                    <input class="input is-dark" type="text" placeholder="Find a post" th:field="*{value}"/>
                     <p class="help is-danger is-size-6"
                        th:if="${#fields.hasErrors('value')}"
                        th:errors="*{value}">Content Error >
                     </p>
                 </div>
                 <div class="control">
-                    <input class="button is-info" type="submit" name="action" value="Search"/>
+                    <input class="button is-info" type="submit" name="action" value="Search" style="width:150%"/>
                 </div>
             </div>
         </form>

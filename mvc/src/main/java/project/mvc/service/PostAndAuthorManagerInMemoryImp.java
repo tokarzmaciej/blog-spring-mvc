@@ -10,6 +10,8 @@ import project.mvc.domain.PostAndAuthor;
 import java.io.File;
 import java.io.FileWriter;
 import java.io.IOException;
+import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 import java.util.Objects;
 import java.util.stream.Collectors;
@@ -84,5 +86,17 @@ public class PostAndAuthorManagerInMemoryImp implements PostAndAuthorManager {
         }
     }
 
+    @Override
+    public void csvToBeans(String content) {
+        List<PostAndAuthor> importedData = new ArrayList<>();
+
+        Arrays.stream(content.split("\n")).skip(1)
+                .forEach(row -> {
+                    List<String> line = Arrays.stream(row.split(",")).collect(Collectors.toList());
+                    PostAndAuthor postAndAuthor = new PostAndAuthor(line.get(0), line.get(1));
+                    importedData.add(postAndAuthor);
+                });
+        setDb(importedData);
+    }
 
 }

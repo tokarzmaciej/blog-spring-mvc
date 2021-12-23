@@ -19,5 +19,8 @@ public interface AttachmentManager {
 
     void writeToCsv();
 
+    void csvToBeans(String content);
+
+
 }
 

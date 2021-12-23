@@ -205,4 +205,17 @@ public class PostManagerInMemoryImp implements PostManager {
         }
     }
 
+    @Override
+    public void csvToBeans(String content) {
+        List<Post> importedData = new ArrayList<>();
+
+        Arrays.stream(content.split("\n")).skip(1)
+                .forEach(row -> {
+                    List<String> line = Arrays.stream(row.split(",")).collect(Collectors.toList());
+                    Post post = new Post(line.get(0), line.get(1), line.get(2));
+                    importedData.add(post);
+                });
+        setDb(importedData);
+    }
+
 }

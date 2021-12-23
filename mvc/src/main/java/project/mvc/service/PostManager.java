@@ -29,4 +29,6 @@ public interface PostManager {
 
     void writeToCsv();
 
+    void csvToBeans(String content);
+
 }

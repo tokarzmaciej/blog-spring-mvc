@@ -8,6 +8,8 @@ import project.mvc.domain.Attachment;
 import java.io.File;
 import java.io.FileWriter;
 import java.io.IOException;
+import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 import java.util.Objects;
 import java.util.stream.Collectors;
@@ -80,6 +82,19 @@ class AttachmentManagerInMemoryImpl implements AttachmentManager {
         } catch (IOException e) {
             e.printStackTrace();
         }
+    }
+
+    @Override
+    public void csvToBeans(String content) {
+        List<Attachment> importedData = new ArrayList<>();
+
+        Arrays.stream(content.split("\n")).skip(1)
+                .forEach(row -> {
+                    List<String> line = Arrays.stream(row.split(",")).collect(Collectors.toList());
+                    Attachment attachment = new Attachment(line.get(0), line.get(1));
+                    importedData.add(attachment);
+                });
+        setDb(importedData);
     }
 
 }

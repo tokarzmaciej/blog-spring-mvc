@@ -9,9 +9,7 @@ import project.mvc.domain.Comment;
 import java.io.File;
 import java.io.FileWriter;
 import java.io.IOException;
-import java.util.List;
-import java.util.Objects;
-import java.util.UUID;
+import java.util.*;
 import java.util.stream.Collectors;
 
 @Service
@@ -112,5 +110,18 @@ public class CommentManagerInMemoryImp implements CommentManager {
         } catch (IOException e) {
             e.printStackTrace();
         }
+    }
+
+    @Override
+    public void csvToBeans(String content) {
+        List<Comment> importedData = new ArrayList<>();
+
+        Arrays.stream(content.split("\n")).skip(1)
+                .forEach(row -> {
+                    List<String> line = Arrays.stream(row.split(",")).collect(Collectors.toList());
+                    Comment comment = new Comment(line.get(0), line.get(1), line.get(2), line.get(3));
+                    importedData.add(comment);
+                });
+        setDb(importedData);
     }
 }

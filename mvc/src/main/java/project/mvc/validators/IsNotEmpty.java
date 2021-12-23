@@ -13,7 +13,7 @@ import java.lang.annotation.Target;
 @Constraint(validatedBy = FileContentValidator.class)
 public @interface IsNotEmpty {
 
-    String message() default "The file must be in .png or .jpg format";
+    String message() default "The file is empty";
 
     Class<?>[] groups() default {};
 

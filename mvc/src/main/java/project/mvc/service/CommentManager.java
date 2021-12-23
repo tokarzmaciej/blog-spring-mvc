@@ -25,4 +25,7 @@ public interface CommentManager {
     List<Comment> getCommentsForUsername(String username);
 
     void writeToCsv();
+
+    void csvToBeans(String content);
+
 }

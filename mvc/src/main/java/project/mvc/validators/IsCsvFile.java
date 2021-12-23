@@ -1,5 +1,6 @@
 package project.mvc.validators;
 
+
 import javax.validation.Constraint;
 import javax.validation.Payload;
 import java.lang.annotation.ElementType;
@@ -9,10 +10,10 @@ import java.lang.annotation.Target;
 
 @Target(ElementType.FIELD)
 @Retention(RetentionPolicy.RUNTIME)
-@Constraint(validatedBy = ImageFileTypeValidator.class)
-public @interface IsImageFile {
+@Constraint(validatedBy = CsvFileTypeValidator.class)
+public @interface IsCsvFile {
 
-    String message() default "The file must be in .png or .jpg format";
+    String message() default "The file must be in .csv format";
 
     Class<?>[] groups() default {};
 

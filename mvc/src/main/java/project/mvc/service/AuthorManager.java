@@ -22,4 +22,7 @@ public interface AuthorManager {
     List<AuthorView> getAuthorViewForSearch(String value);
 
     void writeToCsv();
+
+    void csvToBeans(String content);
+
 }

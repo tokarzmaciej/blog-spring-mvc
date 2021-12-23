@@ -4,17 +4,12 @@ import com.opencsv.CSVWriter;
 import lombok.Setter;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-import project.mvc.domain.Author;
-import project.mvc.domain.AuthorView;
-import project.mvc.domain.Post;
-import project.mvc.domain.PostAndAuthor;
+import project.mvc.domain.*;
 
 import java.io.File;
 import java.io.FileWriter;
 import java.io.IOException;
-import java.util.Collections;
-import java.util.List;
-import java.util.Objects;
+import java.util.*;
 import java.util.stream.Collectors;
 
 
@@ -126,5 +121,18 @@ class AuthorsManagerInMemoryImpl implements AuthorManager {
         } catch (IOException e) {
             e.printStackTrace();
         }
+    }
+
+    @Override
+    public void csvToBeans(String content) {
+        List<Author> importedData = new ArrayList<>();
+
+        Arrays.stream(content.split("\n")).skip(1)
+                .forEach(row -> {
+                    List<String> line = Arrays.stream(row.split(",")).collect(Collectors.toList());
+                    Author author = new Author(line.get(0), line.get(1), line.get(2), line.get(3));
+                    importedData.add(author);
+                });
+        setDb(importedData);
     }
 }
