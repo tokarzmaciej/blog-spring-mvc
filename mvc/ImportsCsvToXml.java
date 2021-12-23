@@ -1,5 +1,3 @@
-package project.mvc.imports;
-
 import com.opencsv.CSVReader;
 import com.opencsv.CSVReaderBuilder;
 import org.w3c.dom.Attr;
@@ -120,6 +118,10 @@ public class ImportsCsvToXml {
         } catch (Exception e) {
             e.printStackTrace();
         }
+    }
 
+    public static void main(String[] args) {
+        ImportsCsvToXml importsCsvToXml = new ImportsCsvToXml();
+        importsCsvToXml.writeDataFromCsvToXml();
     }
 }
