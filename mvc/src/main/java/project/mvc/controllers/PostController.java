@@ -2,6 +2,7 @@ package project.mvc.controllers;
 
 
 import lombok.extern.slf4j.Slf4j;
+import org.junit.Test;
 import org.springframework.core.io.Resource;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.ResponseEntity;
@@ -9,20 +10,24 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.Errors;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.web.multipart.MultipartFile;
+import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 import project.mvc.domain.Comment;
 import project.mvc.domain.Post;
 import project.mvc.domain.PostForm;
 import project.mvc.service.AuthorManager;
-import project.mvc.service.CommentManager;
 import project.mvc.service.PostAndAuthorManager;
 import project.mvc.service.PostManager;
 import project.mvc.storage.StorageFileNotFoundException;
 import project.mvc.storage.StorageService;
 
 import javax.validation.Valid;
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
+import java.util.UUID;
+
 
 @Slf4j
 @Controller
@@ -74,27 +79,43 @@ public class PostController {
     }
 
     @PostMapping("/post/create")
-    public String createPost(Model model, @Valid PostForm postForm, Errors errors) {
+    public String createPost(Model model, @Valid PostForm postForm, Errors errors, RedirectAttributes redirectAttributes) {
         if (errors.hasErrors()) {
             model.addAttribute("authors", authorManager.getAllAuthors());
             return "postForm";
         } else {
-            storageService.storeImage(postForm.getImageFile());
-            Arrays.asList(postForm.getAttachment()).forEach(storageService::storeAttachment);
-            Post postToAdd = postManager.addPost(postForm);
+            Post postToAdd = postManager.addPost(postForm, save(postForm));
             log.info("Post created: " + postToAdd);
-
+            redirectAttributes.addFlashAttribute("info", "Created new post");
         }
         return "redirect:/";
     }
 
+    private List<String> save(@Valid PostForm postForm) {
+        storageService.storeImage(postForm.getImageFile());
+        List<String> attachments = new ArrayList<>();
+        Arrays.asList(postForm.getAttachment()).forEach(file -> {
+            if (!file.isEmpty()) {
+                String idFile = UUID.randomUUID().toString();
+                String filename = idFile + file.getOriginalFilename();
+                attachments.add(filename);
+                try {
+                    storageService.storeAttachment(file.getInputStream(), filename);
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
+            }
+        });
+        return attachments;
+    }
+
     @GetMapping("/post/delete/{idPost}")
-    public String delete(@PathVariable String idPost) {
+    public String delete(@PathVariable String idPost, RedirectAttributes redirectAttributes) {
         if (postManager.deletePost(idPost)) {
+            redirectAttributes.addFlashAttribute("infoDelete", "Deleted post");
             return "redirect:/";
         } else {
             return "redirect:/noPage";
-
         }
     }
 
@@ -116,16 +137,17 @@ public class PostController {
     }
 
     @PostMapping("/post/edit/{idPost}")
-    public String editPost(Model model, @PathVariable String idPost, @Valid PostForm postForm, Errors errors) {
+    public String editPost(Model model, @PathVariable String idPost, @Valid PostForm postForm,
+                           Errors errors, RedirectAttributes redirectAttributes) {
         if (errors.hasErrors()) {
             model.addAttribute("authors", authorManager.getAllAuthors());
+            model.addAttribute("postToEdit", postManager.getPost(idPost).get(0));
+            model.addAttribute("selectedAuthors", postAndAuthorManager.getIdAuthorsForPost(idPost));
             return "postForm";
         } else {
-            storageService.storeImage(postForm.getImageFile());
-            Arrays.asList(postForm.getAttachment()).forEach(storageService::storeAttachment);
-            Post postToEdit = postManager.editPost(idPost, postForm);
+            Post postToEdit = postManager.editPost(idPost, postForm, save(postForm));
             log.info("Post edited: " + postToEdit);
-
+            redirectAttributes.addFlashAttribute("info", "Edited post");
         }
         return "redirect:/";
     }

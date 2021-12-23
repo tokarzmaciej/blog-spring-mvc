@@ -68,13 +68,13 @@
         <div class="level-item has-text-centered">
             <div>
                 <p class="heading">Comments</p>
-                <p class="title" th:text="${commentsSize}">456K</p>
+                <p class="title" th:text="${commentsSize}"></p>
             </div>
         </div>
         <div class="level-item has-text-centered">
             <div>
                 <p class="heading">Attachments</p>
-                <p class="title" th:text="${attachmentsSize}">789</p>
+                <p class="title" th:text="${attachmentsSize}"></p>
             </div>
         </div>
     </nav>
@@ -99,7 +99,15 @@
 
     <div class="sorting mt-5" th:insert="sorting :: sorting1"></div>
     <div class="sorting mt-2" th:insert="sorting :: sorting2"></div>
-
+    <p class="title mt-6 mb-3 is-flex is-justify-content-center has-text-success"
+       th:if="${info}"
+       th:text="${info}"
+    >
+    <p class="title mt-6 mb-3 is-flex is-justify-content-center has-text-danger"
+       th:if="${infoDelete}"
+       th:text="${infoDelete}"
+    >
+    </p>
     <div class="posts mb-6"
          style="display:flex;justify-content:center; align-items: center; flex-direction: column">
         <div class="card has-background-white-bis mt-6" th:each="post : ${posts}">

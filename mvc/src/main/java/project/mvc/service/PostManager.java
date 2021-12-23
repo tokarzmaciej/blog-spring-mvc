@@ -7,7 +7,7 @@ import project.mvc.domain.PostView;
 import java.util.List;
 
 public interface PostManager {
-    Post addPost(PostForm postForm);
+    Post addPost(PostForm postForm, List<String> attachments);
 
     List<Post> getAllPosts();
 
@@ -17,7 +17,7 @@ public interface PostManager {
 
     List<PostView> getPostView(String idPost);
 
-    Post editPost(String idPost, PostForm postForm);
+    Post editPost(String idPost, PostForm postForm, List<String> attachments);
 
     List<PostView> getAllPostsView();
 

@@ -67,7 +67,7 @@
                     <a th:if="${attachment.getFilename().startsWith('http://')}"
                        th:href="@{${attachment.getFilename()}}"
                        th:text="${attachment.getFilename().startsWith('http://')} ?
-                        ${attachment.getFilename().substring(39,attachment.getFilename().length())}
+                        ${attachment.getFilename().substring(75,attachment.getFilename().length())}
                         : ${attachment.getFilename()} "></a>
                     <a th:if="${!attachment.getFilename().startsWith('http://')}"
                        th:text="${attachment.getFilename()} "></a>

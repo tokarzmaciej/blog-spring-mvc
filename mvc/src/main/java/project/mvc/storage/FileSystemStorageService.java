@@ -51,18 +51,18 @@ public class FileSystemStorageService implements StorageService {
     }
 
 
-    public void storeAttachment(MultipartFile file) {
+    public void storeAttachment(InputStream stream, String filename) {
         try {
 
             Path destinationFile = this.rootLocationAttachment.resolve(
-                            Paths.get(Objects.requireNonNull(file.getOriginalFilename())))
+                            Paths.get(Objects.requireNonNull(filename)))
                     .normalize().toAbsolutePath();
             if (!destinationFile.getParent().equals(this.rootLocationAttachment.toAbsolutePath())) {
                 // This is a security check
                 throw new StorageException(
                         "Cannot store file outside current directory.");
             }
-            try (InputStream inputStream = file.getInputStream()) {
+            try (InputStream inputStream = stream) {
                 Files.copy(inputStream, destinationFile,
                         StandardCopyOption.REPLACE_EXISTING);
             }

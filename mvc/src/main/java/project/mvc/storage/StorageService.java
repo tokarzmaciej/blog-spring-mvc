@@ -3,6 +3,7 @@ package project.mvc.storage;
 import org.springframework.core.io.Resource;
 import org.springframework.web.multipart.MultipartFile;
 
+import java.io.InputStream;
 import java.nio.file.Path;
 
 public interface StorageService {
@@ -11,7 +12,7 @@ public interface StorageService {
 
     void storeImage(MultipartFile file);
 
-    void storeAttachment(MultipartFile file);
+    void storeAttachment(InputStream stream, String filename);
 
     Path loadImage(String filename);
 
