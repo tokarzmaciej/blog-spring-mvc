@@ -21,6 +21,7 @@ import project.mvc.storage.StorageService;
 
 import javax.validation.Valid;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 
 @Slf4j
@@ -79,7 +80,7 @@ public class PostController {
             return "postForm";
         } else {
             storageService.storeImage(postForm.getImageFile());
-            storageService.storeAttachment(postForm.getAttachment());
+            Arrays.asList(postForm.getAttachment()).forEach(storageService::storeAttachment);
             Post postToAdd = postManager.addPost(postForm);
             log.info("Post created: " + postToAdd);
 
@@ -121,7 +122,7 @@ public class PostController {
             return "postForm";
         } else {
             storageService.storeImage(postForm.getImageFile());
-            storageService.storeAttachment(postForm.getAttachment());
+            Arrays.asList(postForm.getAttachment()).forEach(storageService::storeAttachment);
             Post postToEdit = postManager.editPost(idPost, postForm);
             log.info("Post edited: " + postToEdit);
 

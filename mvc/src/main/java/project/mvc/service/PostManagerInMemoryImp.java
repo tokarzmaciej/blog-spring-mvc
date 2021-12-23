@@ -51,10 +51,13 @@ public class PostManagerInMemoryImp implements PostManager {
         Attachment image = new Attachment(idPost, urlForImage);
         attachmentManager.addAttachment(image);
 
-        String attachmentName = postForm.getAttachment().getOriginalFilename();
-        String urlForAttachment = "http://localhost:8080/files/attachment/" + attachmentName;
-        Attachment attachment = new Attachment(idPost, urlForAttachment);
-        attachmentManager.addAttachment(attachment);
+        Arrays.asList(postForm.getAttachment()).forEach(attachment -> {
+            String attachmentName = attachment.getOriginalFilename();
+            String urlForAttachment = "http://localhost:8080/files/attachment/" + attachmentName;
+            Attachment newAttachment = new Attachment(idPost, urlForAttachment);
+            attachmentManager.addAttachment(newAttachment);
+        });
+
     }
 
     @Override

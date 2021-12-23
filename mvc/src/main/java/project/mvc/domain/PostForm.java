@@ -27,7 +27,6 @@ public class PostForm {
     @IsImageFile
     @IsNotEmpty
     private MultipartFile imageFile;
-    @IsNotEmpty
-    private MultipartFile attachment;
+    private MultipartFile[] attachment;
 
 }
