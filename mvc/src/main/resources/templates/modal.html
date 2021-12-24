@@ -7,16 +7,14 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.3/css/bulma.min.css">
     <link rel="canonical" href="https://bulma.io/documentation/components/navbar/">
 </head>
-
 <body>
 <div th:class="${modalOpen}" th:fragment="modal">
     <div class="modal-background"></div>
     <div class="modal-card  has-background-grey">
         <header class="modal-card-head">
             <p class="modal-card-title">Comments</p>
-            <button class="delete" aria-label="close" onclick="closeModal(event)"></button>
+            <button class="delete" aria-label="close" onclick="closeModal()"></button>
         </header>
-
         <section class="modal-card-body">
             <div class="comment  is-flex">
                 <form method="POST" th:action="@{{linkToEditPost}(linkToEditPost=${linkToEditPost})}"
@@ -42,7 +40,6 @@
                             <p class="help is-danger is-size-6"
                                th:if="${#fields.hasErrors('comment_content')}"
                                th:errors="*{comment_content}">Content Error >
-
                             </p>
                         </div>
                         <div class="control is-flex is-justify-content-right mt-2 mr-5 mb-4">
@@ -51,8 +48,6 @@
                     </div>
                 </form>
             </div>
-
-
             <div th:each="comment : ${post.getComments()}">
                 <div class="card has-background-white-ter mb-6 mt-2" style="width:100%">
                     <div class="is-flex is-justify-content-right">
@@ -75,7 +70,6 @@
                 </div>
             </div>
         </section>
-
     </div>
 </div>
 </body>

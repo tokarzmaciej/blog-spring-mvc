@@ -13,33 +13,16 @@
     <script>$(function () {
         $('select').chosen();
     })</script>
-
-
+    <link rel="stylesheet" th:href="@{/postForm.css}">
 </head>
 <body>
-
-<style>
-    form {
-        width: 40%;
-
-    }
-
-    @media (max-width: 600px) {
-        form {
-            width: 80%;
-        }
-    }
-</style>
-
 <div>
     <nav th:insert="navbar :: nav"></nav>
-
     <div class="is-size-1 mt-6" style="display:flex;justify-content:center">
         <h1 class="title has-text-link" th:text="${function}"></h1>
     </div>
     <div class="formForPost mt-6 is-size-1" style="display:flex;justify-content:center">
-        <form method="POST" th:action="@{{link}(link=${link})}" th:object="${postForm}" enctype="multipart/form-data"
-        >
+        <form method="POST" th:action="@{{link}(link=${link})}" th:object="${postForm}" enctype="multipart/form-data">
             <div th:if="${#fields.hasErrors()}">
                   <span class="help is-danger is-size-5">
                      Please correct the problems below and resubmit.
@@ -89,7 +72,7 @@
                     </div>
                     <p class="help is-danger is-size-6"
                        th:if="${#fields.hasErrors('authorsPost')}"
-                       th:errors="*{authorsPost}">Author type Error
+                       th:errors="*{authorsPost}">Authors post Error
 
                     </p>
                 </div>
@@ -136,18 +119,12 @@
                         Attach an attachment
                         </span>
                     </span>
-
-
                 </label>
-
                 <p class="help is-danger is-size-6"
                    th:if="${#fields.hasErrors('attachment')}"
                    th:errors="*{attachment}">Attachment Error
-
                 </p>
             </div>
-
-
             <div class="field" style="display:flex;justify-content:center;">
                 <input class="button is-success mt-6 mb-6" type="submit" name="action" value="Submit"
                        style="display:flex;justify-content:center; width: 40%"/>
@@ -155,22 +132,6 @@
         </form>
     </div>
 </div>
-<script>
-    const imageInput = document.querySelector('#imageInput input[type=file]');
-    imageInput.onchange = () => {
-        if (imageInput.files.length > 0) {
-            const fileName = document.querySelector('#imageInput .file-name');
-            fileName.textContent = imageInput.files[0].name;
-        }
-    }
-
-    const attachmentInput = document.querySelector('#attachmentInput input[type=file]');
-    attachmentInput.onchange = () => {
-        if (attachmentInput.files.length > 0) {
-            const fileName = document.querySelector('#attachmentInput .file-name');
-            fileName.textContent = attachmentInput.files[0].name;
-        }
-    }
-</script>
+<script th:src="@{/showFileNamePostForm.js}"></script>
 </body>
 </html>

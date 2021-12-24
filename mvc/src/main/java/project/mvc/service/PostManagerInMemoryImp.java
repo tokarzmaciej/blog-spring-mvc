@@ -20,6 +20,8 @@ public class PostManagerInMemoryImp implements PostManager {
     private final PostAndAuthorManager postAndAuthorManager;
     private final AttachmentManager attachmentManager;
     private final CommentManager commentManager;
+    String urlForImage = "http://localhost:8080/files/image/";
+    String urlForAttachment = "http://localhost:8080/files/attachment/";
 
 
     public PostManagerInMemoryImp(@Autowired List<Post> db, PostAndAuthorManager postAndAuthorManager,
@@ -47,13 +49,13 @@ public class PostManagerInMemoryImp implements PostManager {
 
     private void addAttachmentsForPost(PostForm postForm, String idPost, List<String> attachments) {
         String imageName = postForm.getImageFile().getOriginalFilename();
-        String urlForImage = "http://localhost:8080/files/image/" + imageName;
-        Attachment image = new Attachment(idPost, urlForImage);
+        String urlI = urlForImage + imageName;
+        Attachment image = new Attachment(idPost, urlI);
         attachmentManager.addAttachment(image);
 
         attachments.forEach(attachment -> {
-            String urlForAttachment = "http://localhost:8080/files/attachment/" + attachment;
-            Attachment newAttachment = new Attachment(idPost, urlForAttachment);
+            String urlA = urlForAttachment + attachment;
+            Attachment newAttachment = new Attachment(idPost, urlA);
             attachmentManager.addAttachment(newAttachment);
         });
 
@@ -79,7 +81,7 @@ public class PostManagerInMemoryImp implements PostManager {
     }
 
     @Override
-    public Post editPost(String idPost, PostForm postForm,List<String> attachments) {
+    public Post editPost(String idPost, PostForm postForm, List<String> attachments) {
         Post postToEdit = new Post(idPost, postForm.getPost_content(), postForm.getTags());
         postAndAuthorManager.setDb(
                 postAndAuthorManager
@@ -98,7 +100,7 @@ public class PostManagerInMemoryImp implements PostManager {
                         .stream().filter(attachment -> !Objects.equals(attachment.getId_post(), idPost))
                         .collect(Collectors.toList()));
 
-        addAttachmentsForPost(postForm, idPost,attachments);
+        addAttachmentsForPost(postForm, idPost, attachments);
         setDb(db.stream().map(post -> {
             if (Objects.equals(post.getId(), idPost)) {
                 return postToEdit;

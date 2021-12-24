@@ -27,7 +27,8 @@ public class MainPage {
     private final CommentManager commentManager;
     private final AttachmentManager attachmentManager;
 
-    public MainPage(PostManager postManager, AuthorManager authorManager, CommentManager commentManager, AttachmentManager attachmentManager) {
+    public MainPage(PostManager postManager, AuthorManager authorManager,
+                    CommentManager commentManager, AttachmentManager attachmentManager) {
         this.postManager = postManager;
         this.authorManager = authorManager;
         this.commentManager = commentManager;

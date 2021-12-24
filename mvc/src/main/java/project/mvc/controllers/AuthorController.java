@@ -1,13 +1,11 @@
 package project.mvc.controllers;
 
-
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.Errors;
 import org.springframework.web.bind.annotation.*;
 import project.mvc.domain.Search;
-import project.mvc.domain.Sort;
 import project.mvc.service.AuthorManager;
 
 import javax.validation.Valid;

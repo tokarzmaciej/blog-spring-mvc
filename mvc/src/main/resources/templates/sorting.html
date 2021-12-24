@@ -6,9 +6,7 @@
     <title>Blog</title>
 </head>
 <body>
-
 <div class="tabs is-centered" th:fragment="sorting1">
-
     <ul>
         <li class="tab mr-6" th:classappend="${sort.isSortAlpUp} ? 'is-active' : '' " onclick="openTab(event)">
             <a class="mr-6" th:href="@{/}">
@@ -29,7 +27,6 @@
             </a>
         </li>
     </ul>
-
 </div>
 
 <div class="tabs is-centered" th:fragment="sorting2">

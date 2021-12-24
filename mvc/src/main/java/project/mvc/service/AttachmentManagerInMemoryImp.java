@@ -20,6 +20,7 @@ class AttachmentManagerInMemoryImpl implements AttachmentManager {
 
     @Setter
     private List<Attachment> db;
+    String urlForImage = "http://localhost:8080/files/image/";
 
     AttachmentManagerInMemoryImpl(List<Attachment> db) {
         this.db = db;
@@ -45,7 +46,7 @@ class AttachmentManagerInMemoryImpl implements AttachmentManager {
     public List<Attachment> getAllAttachmentsForPost(String idPost) {
         return db.stream()
                 .filter(attachment -> Objects.equals(attachment.getId_post(), idPost)
-                        && !attachment.getFilename().startsWith("http://localhost:8080/files/image/"))
+                        && !attachment.getFilename().startsWith(urlForImage))
                 .collect(Collectors.toList());
     }
 
@@ -53,7 +54,7 @@ class AttachmentManagerInMemoryImpl implements AttachmentManager {
     public List<Attachment> getAllImagesForPost(String idPost) {
         return db.stream()
                 .filter(attachment -> Objects.equals(attachment.getId_post(), idPost)
-                        && attachment.getFilename().startsWith("http://localhost:8080/files/image/"))
+                        && attachment.getFilename().startsWith(urlForImage))
                 .collect(Collectors.toList());
     }
 

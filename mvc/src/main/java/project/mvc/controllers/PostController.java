@@ -2,7 +2,6 @@ package project.mvc.controllers;
 
 
 import lombok.extern.slf4j.Slf4j;
-import org.junit.Test;
 import org.springframework.core.io.Resource;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.ResponseEntity;
@@ -10,7 +9,6 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.Errors;
 import org.springframework.web.bind.annotation.*;
-import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 import project.mvc.domain.Comment;
 import project.mvc.domain.Post;
@@ -38,7 +36,8 @@ public class PostController {
     private final StorageService storageService;
     private final PostAndAuthorManager postAndAuthorManager;
 
-    public PostController(PostManager postManager, AuthorManager authorManager, StorageService storageService, PostAndAuthorManager postAndAuthorManager) {
+    public PostController(PostManager postManager, AuthorManager authorManager,
+                          StorageService storageService, PostAndAuthorManager postAndAuthorManager) {
         this.postManager = postManager;
         this.authorManager = authorManager;
         this.storageService = storageService;

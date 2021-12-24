@@ -1,8 +1,6 @@
 package project.mvc.service;
 
 import project.mvc.domain.Comment;
-import project.mvc.domain.Post;
-import project.mvc.domain.PostForm;
 
 import java.util.List;
 

@@ -6,50 +6,11 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.3/css/bulma.min.css">
     <link rel="canonical" href="https://bulma.io/documentation/components/navbar/">
     <script defer src="https://use.fontawesome.com/releases/v5.3.1/js/all.js"></script>
-    <script>
-        function openTab(evt) {
-            var i, tablinks;
-            tablinks = document.getElementsByClassName("tab");
-            for (i = 0; i < 6; i++) {
-                tablinks[i].className = tablinks[i].className.replace(" is-active", "");
-            }
-            evt.currentTarget.className += " is-active";
-        }
+    <script th:src="@{/openTab.js}">
     </script>
-    <!--    I used:https://codepen.io/t7team/pen/ZowdRN-->
-
+    <link rel="stylesheet" th:href="@{/mainPage.css}">
 </head>
-
 <body>
-<style>
-    .card {
-        width: 50%;
-    }
-
-    .tabs {
-        width: 35%;
-    }
-
-    .sorting {
-        display: flex;
-        justify-content: center;
-    }
-
-    form {
-        width: 45%;
-    }
-
-
-    @media (max-width: 600px) {
-        .card {
-            width: 80%;
-        }
-
-        .tabs {
-            width: 70%;
-        }
-    }
-</style>
 <div>
     <nav th:insert="navbar :: nav"></nav>
     <nav class="level mt-5">
@@ -96,7 +57,6 @@
             </div>
         </form>
     </div>
-
     <div class="sorting mt-5" th:insert="sorting :: sorting1"></div>
     <div class="sorting mt-2" th:insert="sorting :: sorting2"></div>
     <p class="title mt-6 mb-3 is-flex is-justify-content-center has-text-success"
@@ -145,8 +105,6 @@
             </div>
         </div>
     </div>
-
-
 </div>
 </body>
 </html>

@@ -1,0 +1,27 @@
+.card {
+    width: 50%;
+}
+
+.tabs {
+    width: 35%;
+}
+
+.sorting {
+    display: flex;
+    justify-content: center;
+}
+
+form {
+    width: 45%;
+}
+
+
+@media (max-width: 600px) {
+    .card {
+        width: 80%;
+    }
+
+    .tabs {
+        width: 70%;
+    }
+}

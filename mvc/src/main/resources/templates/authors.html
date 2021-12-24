@@ -13,10 +13,10 @@
 <div class="search  is-flex is-justify-content-center mt-6 mb-6">
     <form method="POST" th:action="@{/author/search}" th:object="${search}"
           enctype="multipart/form-data">
-        <div class="field has-addons is-flex is-justify-center" >
-            <div class="control" style="width:100%" >
+        <div class="field has-addons is-flex is-justify-center">
+            <div class="control" style="width:100%">
 
-                <input class="input is-dark" type="text" placeholder="Find an author" th:field="*{value}" />
+                <input class="input is-dark" type="text" placeholder="Find an author" th:field="*{value}"/>
                 <p class="help is-danger is-size-6"
                    th:if="${#fields.hasErrors('value')}"
                    th:errors="*{value}">Content Error >
@@ -35,7 +35,7 @@
         <div class="column is-narrow m-5 p-1 mb-6 " th:each="author : ${authors}"
              style="width:150px;height:100px">
             <strong>
-                <a class="bd-notification has-text-dark is-flex is-justify-content-center is-flex-wrap-wrap "
+                <a class="bd-notification has-text-dark is-flex is-justify-content-center is-flex-wrap-wrap"
                    th:text="${author.getUsername()}"
                    th:href="@{/author/{username}(username=${author.getUsername()})}"
                 >

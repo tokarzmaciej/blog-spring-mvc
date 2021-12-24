@@ -29,9 +29,8 @@ public class PostAndAuthorManagerInMemoryImp implements PostAndAuthorManager {
     }
 
     @Override
-    public PostAndAuthor addPostAndAuthor(PostAndAuthor postAndAuthor) {
+    public void addPostAndAuthor(PostAndAuthor postAndAuthor) {
         db.add(postAndAuthor);
-        return postAndAuthor;
     }
 
     @Override
