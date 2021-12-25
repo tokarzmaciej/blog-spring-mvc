@@ -20,7 +20,7 @@ class AttachmentManagerInMemoryImpl implements AttachmentManager {
 
     @Setter
     private List<Attachment> db;
-    String urlForImage = "http://localhost:8080/files/image/";
+    String urlForImage = "https://blog-with-spring-boot.herokuapp.com/files/image/";
 
     AttachmentManagerInMemoryImpl(List<Attachment> db) {
         this.db = db;

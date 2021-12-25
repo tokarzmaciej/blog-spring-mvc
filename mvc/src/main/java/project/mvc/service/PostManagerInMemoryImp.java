@@ -20,8 +20,8 @@ public class PostManagerInMemoryImp implements PostManager {
     private final PostAndAuthorManager postAndAuthorManager;
     private final AttachmentManager attachmentManager;
     private final CommentManager commentManager;
-    String urlForImage = "http://localhost:8080/files/image/";
-    String urlForAttachment = "http://localhost:8080/files/attachment/";
+    String urlForImage = "https://blog-with-spring-boot.herokuapp.com/files/image/";
+    String urlForAttachment = "https://blog-with-spring-boot.herokuapp.com/files/attachment/";
 
 
     public PostManagerInMemoryImp(@Autowired List<Post> db, PostAndAuthorManager postAndAuthorManager,

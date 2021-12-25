@@ -24,4 +24,7 @@ form {
     .tabs {
         width: 70%;
     }
+    form {
+        width: 80%;
+    }
 }
