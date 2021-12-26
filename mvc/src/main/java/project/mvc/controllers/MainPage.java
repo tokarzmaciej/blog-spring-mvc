@@ -138,7 +138,7 @@ public class MainPage {
         model.addAttribute("posts", postManager.getAllPostsForSearch(value));
         model.addAttribute("search", new Search());
         model.addAttribute("sort",
-                new Sort(true, true, false, false, false, false)
+                new Sort(false, false, false, false, false, false)
         );
         model.addAttribute("postsSize", postManager.getAllPosts().size());
         model.addAttribute("authorsSize", authorManager.getAllAuthors().size());
@@ -152,7 +152,7 @@ public class MainPage {
     public String searchPost(Model model, @Valid Search search, Errors errors) {
         if (errors.hasErrors()) {
             model.addAttribute("sort",
-                    new Sort(true, true, false, false, false, false)
+                    new Sort(false, false, false, false, false, false)
             );
             return "mainPage";
         }
