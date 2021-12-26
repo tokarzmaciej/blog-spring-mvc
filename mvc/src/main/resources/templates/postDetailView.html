@@ -35,12 +35,12 @@
             </div>
             <div th:if="${post.getAttachments().size()>0}">
                 <ul th:each="attachment : ${post.getAttachments()}">
-                    <a th:if="${attachment.getFilename().startsWith('http://')}"
+                    <a th:if="${attachment.getFilename().startsWith('http')}"
                        th:href="@{${attachment.getFilename()}}"
-                       th:text="${attachment.getFilename().startsWith('http://')} ?
-                        ${attachment.getFilename().substring(75,attachment.getFilename().length())}
+                       th:text="${attachment.getFilename().startsWith('http')} ?
+                        ${attachment.getFilename().substring(97,attachment.getFilename().length())}
                         : ${attachment.getFilename()} "></a>
-                    <a th:if="${!attachment.getFilename().startsWith('http://')}"
+                    <a th:if="${!attachment.getFilename().startsWith('http')}"
                        th:text="${attachment.getFilename()} "></a>
                 </ul>
             </div>

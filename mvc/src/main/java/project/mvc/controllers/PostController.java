@@ -13,6 +13,7 @@ import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 import project.mvc.domain.Comment;
 import project.mvc.domain.Post;
 import project.mvc.domain.PostForm;
+import project.mvc.domain.PostView;
 import project.mvc.service.AuthorManager;
 import project.mvc.service.PostAndAuthorManager;
 import project.mvc.service.PostManager;
@@ -81,6 +82,7 @@ public class PostController {
     public String createPost(Model model, @Valid PostForm postForm, Errors errors, RedirectAttributes redirectAttributes) {
         if (errors.hasErrors()) {
             model.addAttribute("authors", authorManager.getAllAuthors());
+            model.addAttribute("postToEdit", postForm);
             return "postForm";
         } else {
             Post postToAdd = postManager.addPost(postForm, save(postForm));
@@ -153,12 +155,16 @@ public class PostController {
 
     @GetMapping("/post/{idPost}")
     public String postDetails(Model model, @PathVariable String idPost) {
-        model.addAttribute("post", postManager.getPostView(idPost).get(0));
-        model.addAttribute("modalOpen", "modal");
-        model.addAttribute("comment", new Comment());
-        model.addAttribute("buttonValue", "Comment");
-
-        return "postDetailView";
+        List<PostView> post = postManager.getPostView(idPost);
+        if (post.size() == 1) {
+            model.addAttribute("post", post.get(0));
+            model.addAttribute("modalOpen", "modal");
+            model.addAttribute("comment", new Comment());
+            model.addAttribute("buttonValue", "Comment");
+            return "postDetailView";
+        } else {
+            return "redirect:/noPage";
+        }
     }
 
 

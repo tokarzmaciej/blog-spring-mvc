@@ -122,7 +122,7 @@ public class Imports {
         } else {
             String contentToString = new String(importPostAndAuthor.getFileCsv().getBytes(), StandardCharsets.UTF_8);
             postAndAuthorManager.csvToBeans(contentToString);
-            log.info("Imported attachments");
+            log.info("Imported posts and authors");
         }
         return "redirect:/";
     }

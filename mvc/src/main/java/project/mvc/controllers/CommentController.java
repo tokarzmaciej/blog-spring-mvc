@@ -7,6 +7,7 @@ import org.springframework.ui.Model;
 import org.springframework.validation.Errors;
 import org.springframework.web.bind.annotation.*;
 import project.mvc.domain.Comment;
+import project.mvc.domain.PostView;
 import project.mvc.service.CommentManager;
 import project.mvc.service.PostManager;
 
@@ -28,14 +29,18 @@ public class CommentController {
 
     @GetMapping("/comment/post/{idPost}")
     public String postDetailsComment(Model model, @PathVariable String idPost) {
-        model.addAttribute("post", postManager.getPostView(idPost).get(0));
-        model.addAttribute("modalOpen", "modal is-active");
-        model.addAttribute("comment", new Comment());
-        model.addAttribute("buttonValue", "Comment");
-        model.addAttribute("commentToEdit", new Comment("", "", "", ""));
-        model.addAttribute("linkToEditPost", "/comment/post/" + idPost);
-
-        return "postDetailView";
+        List<PostView> post = postManager.getPostView(idPost);
+        if (post.size() == 1) {
+            model.addAttribute("post", post.get(0));
+            model.addAttribute("modalOpen", "modal is-active");
+            model.addAttribute("comment", new Comment());
+            model.addAttribute("buttonValue", "Comment");
+            model.addAttribute("commentToEdit", new Comment("", "", "", ""));
+            model.addAttribute("linkToEditPost", "/comment/post/" + idPost);
+            return "postDetailView";
+        } else {
+            return "redirect:/noPage";
+        }
     }
 
     @PostMapping("/comment/post/{idPost}")
@@ -44,7 +49,7 @@ public class CommentController {
             model.addAttribute("post", postManager.getPostView(idPost).get(0));
             model.addAttribute("modalOpen", "modal is-active");
             model.addAttribute("buttonValue", "Comment");
-            model.addAttribute("commentToEdit", new Comment("", "", "", ""));
+            model.addAttribute("commentToEdit", comment);
             model.addAttribute("linkToEditPost", "/comment/post/" + idPost);
             return "postDetailView";
         } else {
