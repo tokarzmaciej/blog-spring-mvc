@@ -130,7 +130,10 @@ class AuthorsManagerInMemoryImpl implements AuthorManager {
         Arrays.stream(content.split("\n")).skip(1)
                 .forEach(row -> {
                     List<String> line = Arrays.stream(row.split(",")).collect(Collectors.toList());
-                    Author author = new Author(line.get(0), line.get(1), line.get(2), line.get(3));
+                    Author author = new Author(line.get(0).substring(1, line.get(0).length() - 1),
+                            line.get(1).substring(1, line.get(1).length() - 1),
+                            line.get(2).substring(1, line.get(2).length() - 1),
+                            line.get(3).substring(1, line.get(3).length() - 1));
                     importedData.add(author);
                 });
         setDb(importedData);

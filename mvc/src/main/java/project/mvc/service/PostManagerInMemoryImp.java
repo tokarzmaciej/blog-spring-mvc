@@ -216,7 +216,9 @@ public class PostManagerInMemoryImp implements PostManager {
         Arrays.stream(content.split("\n")).skip(1)
                 .forEach(row -> {
                     List<String> line = Arrays.stream(row.split(",")).collect(Collectors.toList());
-                    Post post = new Post(line.get(0), line.get(1), line.get(2));
+                    Post post = new Post(line.get(0).substring(1, line.get(0).length() - 1),
+                            line.get(1).substring(1, line.get(1).length() - 1),
+                            line.get(2).substring(1, line.get(2).length() - 1));
                     importedData.add(post);
                 });
         setDb(importedData);

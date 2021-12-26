@@ -92,7 +92,8 @@ class AttachmentManagerInMemoryImpl implements AttachmentManager {
         Arrays.stream(content.split("\n")).skip(1)
                 .forEach(row -> {
                     List<String> line = Arrays.stream(row.split(",")).collect(Collectors.toList());
-                    Attachment attachment = new Attachment(line.get(0), line.get(1));
+                    Attachment attachment = new Attachment(line.get(0).substring(1, line.get(0).length() - 1),
+                            line.get(1).substring(1, line.get(1).length() - 1));
                     importedData.add(attachment);
                 });
         setDb(importedData);

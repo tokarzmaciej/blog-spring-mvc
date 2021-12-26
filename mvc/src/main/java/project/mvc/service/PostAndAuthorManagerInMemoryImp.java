@@ -92,7 +92,8 @@ public class PostAndAuthorManagerInMemoryImp implements PostAndAuthorManager {
         Arrays.stream(content.split("\n")).skip(1)
                 .forEach(row -> {
                     List<String> line = Arrays.stream(row.split(",")).collect(Collectors.toList());
-                    PostAndAuthor postAndAuthor = new PostAndAuthor(line.get(0), line.get(1));
+                    PostAndAuthor postAndAuthor = new PostAndAuthor(line.get(0).substring(1, line.get(0).length() - 1),
+                            line.get(1).substring(1, line.get(1).length() - 1));
                     importedData.add(postAndAuthor);
                 });
         setDb(importedData);

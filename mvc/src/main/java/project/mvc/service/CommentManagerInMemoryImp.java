@@ -119,7 +119,10 @@ public class CommentManagerInMemoryImp implements CommentManager {
         Arrays.stream(content.split("\n")).skip(1)
                 .forEach(row -> {
                     List<String> line = Arrays.stream(row.split(",")).collect(Collectors.toList());
-                    Comment comment = new Comment(line.get(0), line.get(1), line.get(2), line.get(3));
+                    Comment comment = new Comment(line.get(0).substring(1, line.get(0).length() - 1),
+                            line.get(1).substring(1, line.get(1).length() - 1),
+                            line.get(2).substring(1, line.get(2).length() - 1),
+                            line.get(3).substring(1, line.get(3).length() - 1));
                     importedData.add(comment);
                 });
         setDb(importedData);
