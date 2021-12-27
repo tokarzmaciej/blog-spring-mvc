@@ -7,6 +7,7 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RestController;
 import project.mvc.domain.Post;
 import project.mvc.service.AuthorManager;
+import project.mvc.service.PostAndAuthorManager;
 import project.mvc.service.PostManager;
 
 import java.util.List;
@@ -15,11 +16,13 @@ import java.util.List;
 public class RestApiController {
     private final PostManager postManager;
     private final AuthorManager authorManager;
+    private final PostAndAuthorManager postAndAuthorManager;
 
-    public RestApiController(PostManager postManager, AuthorManager authorManager) {
+    public RestApiController(PostManager postManager, AuthorManager authorManager, PostAndAuthorManager postAndAuthorManager) {
 
         this.postManager = postManager;
         this.authorManager = authorManager;
+        this.postAndAuthorManager = postAndAuthorManager;
     }
 
     @GetMapping("/api/post/{idPost}")
@@ -33,7 +36,8 @@ public class RestApiController {
 
     @GetMapping("/api/posts/author/{username}")
     ResponseEntity<?> getPostsForUsernameAuthor(@PathVariable String username) {
-        List<Post> getPostsForAuthor = authorManager.getAllPostsForUserName(username);
+        List<Post> getPostsForAuthor = authorManager.getAllPostsForUserName(username, postAndAuthorManager.getAllPostAndAuthor(),
+                postManager.getAllPosts());
         if (getPostsForAuthor.size() <= 0) {
             return new ResponseEntity<>("Not Found Posts", HttpStatus.NOT_FOUND);
         }

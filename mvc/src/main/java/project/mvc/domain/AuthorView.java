@@ -9,6 +9,7 @@ import java.util.List;
 @AllArgsConstructor
 public class AuthorView {
     private String username;
+    private String name;
     private List<Comment> comments;
     private List<Post> posts;
 

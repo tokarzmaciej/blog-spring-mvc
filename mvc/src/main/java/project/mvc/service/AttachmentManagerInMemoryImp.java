@@ -2,6 +2,7 @@ package project.mvc.service;
 
 import com.opencsv.CSVWriter;
 import lombok.Setter;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import project.mvc.domain.Attachment;
 
@@ -22,7 +23,7 @@ class AttachmentManagerInMemoryImpl implements AttachmentManager {
     private List<Attachment> db;
     String urlForImage = "https://blog-with-spring-boot.herokuapp.com/files/image/";
 
-    AttachmentManagerInMemoryImpl(List<Attachment> db) {
+    AttachmentManagerInMemoryImpl(@Autowired List<Attachment> db) {
         this.db = db;
     }
 

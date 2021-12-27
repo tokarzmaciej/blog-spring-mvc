@@ -19,15 +19,11 @@ class AuthorsManagerInMemoryImpl implements AuthorManager {
     @Setter
     private List<Author> db;
     private final CommentManager commentManager;
-    private final List<PostAndAuthor> listPostAndAuthors;
-    private final List<Post> listPosts;
 
-    AuthorsManagerInMemoryImpl(@Autowired List<Author> db, CommentManager commentManager,
-                               @Autowired List<PostAndAuthor> listPostAndAuthors, @Autowired List<Post> listPosts) {
+
+    AuthorsManagerInMemoryImpl(@Autowired List<Author> db, CommentManager commentManager) {
         this.db = db;
         this.commentManager = commentManager;
-        this.listPosts = listPosts;
-        this.listPostAndAuthors = listPostAndAuthors;
     }
 
     @Override
@@ -42,12 +38,10 @@ class AuthorsManagerInMemoryImpl implements AuthorManager {
     }
 
     @Override
-    public List<Post> getAllPostsForUserName(String username) {
-
-
-        return listPostAndAuthors.stream()
+    public List<Post> getAllPostsForUserName(String username, List<PostAndAuthor> postAndAuthors, List<Post> posts) {
+        return postAndAuthors.stream()
                 .filter(row -> Objects.equals(getAuthor(row.getId_author()).getUsername(), username))
-                .map(post -> listPosts.stream()
+                .map(post -> posts.stream()
                         .filter(p -> Objects.equals(p.getId(), post.getId_post()))
                         .collect(Collectors.toList()).get(0))
                 .collect(Collectors.toList());
@@ -55,17 +49,19 @@ class AuthorsManagerInMemoryImpl implements AuthorManager {
 
 
     @Override
-    public List<AuthorView> getAllAuthorViews() {
+    public List<AuthorView> getAllAuthorViews(List<PostAndAuthor> postAndAuthors, List<Post> posts) {
         List<AuthorView> listAuthorViews = db.stream().map(author -> {
             String username = author.getUsername();
-            return new AuthorView(username, commentManager.getCommentsForUsername(username),
-                    getAllPostsForUserName(username));
+            String name = author.getFirst_name() + " " + author.getLast_name();
+            return new AuthorView(username, name, commentManager.getCommentsForUsername(username),
+                    getAllPostsForUserName(username, postAndAuthors, posts));
         }).collect(Collectors.toList());
 
         commentManager.getAllComments().forEach(comment -> {
             String username = comment.getUsername();
+            String name = "";
             if (listAuthorViews.stream().noneMatch(author -> Objects.equals(author.getUsername(), username))) {
-                listAuthorViews.add(new AuthorView(username, commentManager.getCommentsForUsername(username), Collections.emptyList()));
+                listAuthorViews.add(new AuthorView(username, name, commentManager.getCommentsForUsername(username), Collections.emptyList()));
             }
         });
 
@@ -83,15 +79,15 @@ class AuthorsManagerInMemoryImpl implements AuthorManager {
     }
 
     @Override
-    public List<AuthorView> getAuthorView(String username) {
-        return getAllAuthorViews().stream().
+    public List<AuthorView> getAuthorView(String username, List<PostAndAuthor> postAndAuthors, List<Post> posts) {
+        return getAllAuthorViews(postAndAuthors, posts).stream().
                 filter(author -> Objects.equals(author.getUsername(), username))
                 .collect(Collectors.toList());
     }
 
     @Override
-    public List<AuthorView> getAuthorViewForSearch(String value) {
-        return getAllAuthorViews().stream().
+    public List<AuthorView> getAuthorViewForSearch(String value, List<PostAndAuthor> postAndAuthors, List<Post> posts) {
+        return getAllAuthorViews(postAndAuthors, posts).stream().
                 filter(author -> author.getUsername().contains(value))
                 .collect(Collectors.toList());
     }

@@ -33,11 +33,18 @@
 
     <div class="columns is-mobile is-multiline is-centered is-flex is-justify-content-center mt-4 mb-5"
          style="width:50%">
-        <div class="column is-narrow m-5 p-1 mb-6 " th:each="author : ${authors}"
+        <div class="column is-narrow m-5 p-1 mt-6 mb-6 " th:each="author : ${authors}"
              style="width:150px;height:100px">
             <strong>
-                <a class="bd-notification has-text-dark is-flex is-justify-content-center is-flex-wrap-wrap"
+                <a class="bd-notification has-text-dark is-flex is-justify-content-center is-flex-wrap-wrap mt-6"
                    th:text="${author.getUsername()}"
+                   th:href="@{/author/{username}(username=${author.getUsername()})}"
+                >
+                </a>
+            </strong>
+            <strong>
+                <a class="bd-notification has-text-info is-flex is-justify-content-center is-flex-wrap-wrap"
+                   th:text="${author.getName()}"
                    th:href="@{/author/{username}(username=${author.getUsername()})}"
                 >
                 </a>
